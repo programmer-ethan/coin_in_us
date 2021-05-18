@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.professionalandroid.apps.coin_in_us.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="@string/title_coinSearch"
+        tools:layout="@layout/fragment_coin_search" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.professionalandroid.apps.coin_in_us.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="@string/title_interested"
+        tools:layout="@layout/fragment_interested" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.professionalandroid.apps.coin_in_us.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:label="@string/title_stockSearch"
+        tools:layout="@layout/fragment_stock_search" />
 </navigation>
