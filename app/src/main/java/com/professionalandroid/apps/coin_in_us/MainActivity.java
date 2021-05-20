@@ -1,10 +1,15 @@
 package com.professionalandroid.apps.coin_in_us;
 
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -25,6 +30,35 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+
+        Button BTC = (Button) findViewById(R.id.BTC);
+        Button XRP = (Button) findViewById(R.id.XRP);
+        Button coin_back = (Button) findViewById(R.id.coin_back);
+        Button coin_return = (Button) findViewById(R.id.coin_return);
+        Fragment fragment = new BlankFragment();
+        Resources res = getResources();
+
+        BTC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
+            }
+        });
+        XRP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
+            }
+        });
+        coin_return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+            }
+        });
+
+
     }
 
 }
