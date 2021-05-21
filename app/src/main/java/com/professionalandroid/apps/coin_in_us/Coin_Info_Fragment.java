@@ -15,7 +15,7 @@ public class Coin_Info_Fragment extends Fragment {
         String name = extra.getString("name");
         View returnView = inflater.inflate(R.layout.fragment_coin_info, container, false);
         TextView txtOne = (TextView) returnView.findViewById(R.id.coin_name);
-        txtOne.setText(name);
+        txtOne.setText(name + " 상세 정보 페이지입니다.");
         return returnView;
     }
 }

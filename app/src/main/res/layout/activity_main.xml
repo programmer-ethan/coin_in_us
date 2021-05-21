@@ -39,7 +39,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="250dp"
         android:text="BTC"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -58,6 +58,18 @@
         tools:ignore="MissingConstraints" />
 
     <Button
+        android:id="@+id/ETH"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="ETH"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/XRP"
+        tools:ignore="MissingConstraints" />
+
+    <Button
         android:id="@+id/coin_back"
         android:layout_width="100dp"
         android:layout_height="50dp"
@@ -66,7 +78,7 @@
         android:layout_marginTop="10dp"
         android:text="BACK"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/XRP"
+        app:layout_constraintTop_toBottomOf="@+id/ETH"
         tools:ignore="MissingConstraints" />
 
     <fragment

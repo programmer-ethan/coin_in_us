@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button BTC = (Button) findViewById(R.id.BTC);
         Button XRP = (Button) findViewById(R.id.XRP);
+        Button ETH = (Button) findViewById(R.id.ETH);
         Button back = (Button) findViewById(R.id.coin_back);
         Fragment fragment = new Coin_Info_Fragment();
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString("name", "BTC");
+                bundle.putString("name", "비트코인 BTC");
                 fragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
             }
@@ -48,7 +49,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString("name", "XRP");
+                bundle.putString("name", "리플 XRP");
+                fragment.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
+            }
+        });
+        ETH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("name", "이더리움 ETH");
                 fragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
             }
