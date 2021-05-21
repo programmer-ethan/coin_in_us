@@ -1,10 +1,8 @@
 package com.professionalandroid.apps.coin_in_us;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -40,12 +38,18 @@ public class MainActivity extends AppCompatActivity {
         BTC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("name", "BTC");
+                fragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
             }
         });
         XRP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("name", "XRP");
+                fragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
             }
         });
