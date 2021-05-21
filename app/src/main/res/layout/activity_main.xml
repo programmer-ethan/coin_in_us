@@ -57,8 +57,20 @@
         app:layout_constraintTop_toBottomOf="@+id/BTC"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/coin_back"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="BACK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/XRP"
+        tools:ignore="MissingConstraints" />
+
     <fragment
-        android:name="com.professionalandroid.apps.coin_in_us.Coin_Info_Fragment"
+        android:name="com.professionalandroid.apps.coin_in_us.BlankFragment"
         android:id="@+id/coin_info_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

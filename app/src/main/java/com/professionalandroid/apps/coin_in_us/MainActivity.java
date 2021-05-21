@@ -34,10 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button BTC = (Button) findViewById(R.id.BTC);
         Button XRP = (Button) findViewById(R.id.XRP);
-        Button coin_back = (Button) findViewById(R.id.coin_back);
-        Button coin_return = (Button) findViewById(R.id.coin_return);
-        Fragment fragment = new BlankFragment();
-        Resources res = getResources();
+        Button back = (Button) findViewById(R.id.coin_back);
+        Fragment fragment = new Coin_Info_Fragment();
 
         BTC.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
             }
         });
-        coin_return.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getSupportFragmentManager().beginTransaction().remove(fragment).commit();
