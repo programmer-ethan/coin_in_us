@@ -22,7 +22,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_coin_search, container, false);
+        View root = inflater.inflate(R.layout.fragment_interested, container, false);//false
         final TextView textView = root.findViewById(R.id.text_title);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

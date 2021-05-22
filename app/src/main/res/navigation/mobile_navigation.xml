@@ -3,22 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_coin">
+<!--    이걸 바꿨는데...-->
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_coin"
         android:name="com.professionalandroid.apps.coin_in_us.ui.home.HomeFragment"
         android:label="@string/title_coinSearch"
         tools:layout="@layout/fragment_coin_search" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_interested"
         android:name="com.professionalandroid.apps.coin_in_us.ui.dashboard.DashboardFragment"
         android:label="@string/title_interested"
         tools:layout="@layout/fragment_interested" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_stock"
         android:name="com.professionalandroid.apps.coin_in_us.ui.notifications.NotificationsFragment"
         android:label="@string/title_stockSearch"
         tools:layout="@layout/fragment_stock_search" />
