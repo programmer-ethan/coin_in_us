@@ -11,11 +11,17 @@ import androidx.fragment.app.Fragment;
 public class Coin_Info_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Bundle extra = this.getArguments();
-        String name = extra.getString("name");
+        //
+        Bundle coin_name = this.getArguments();
+        String name = coin_name.getString("name");
+        Bundle coin_detail = this.getArguments();
+        String detail = coin_detail.getString("detail");
+        //
         View returnView = inflater.inflate(R.layout.fragment_coin_info, container, false);
-        TextView txtOne = (TextView) returnView.findViewById(R.id.coin_name);
-        txtOne.setText(name + " 상세 정보 페이지입니다.");
+        TextView name_text = (TextView) returnView.findViewById(R.id.coin_name);
+        name_text.setText("현재 종목 : " + name);
+        TextView detail_text = (TextView) returnView.findViewById(R.id.coin_detail);
+        detail_text.setText(detail);
         return returnView;
     }
 }
