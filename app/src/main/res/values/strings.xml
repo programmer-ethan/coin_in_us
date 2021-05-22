@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">coin_in_us</string>
     <string name="app_title">COIN IN US</string>
-    <string name="title_coinSearch">Interested</string>
-    <string name="title_interested">Coin</string>
+    <string name="title_coinSearch">Coin</string>
+    <string name="title_interested">Interested</string>
     <string name="title_stockSearch">Stock</string>
     <string name="interested_coin">Interested Coin</string>
     <string name="interested_stock">Interested Stock</string>

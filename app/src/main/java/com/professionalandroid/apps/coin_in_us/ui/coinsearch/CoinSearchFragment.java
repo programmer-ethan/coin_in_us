@@ -1,4 +1,4 @@
-package com.professionalandroid.apps.coin_in_us.ui.notifications;
+package com.professionalandroid.apps.coin_in_us.ui.coinsearch;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.professionalandroid.apps.coin_in_us.R;
 
-public class NotificationsFragment extends Fragment {
+public class CoinSearchFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private CoinSearchViewModel coinsearchViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_stock_search, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        coinsearchViewModel =
+                new ViewModelProvider(this).get(CoinSearchViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_coin_search, container, false);
+        final TextView textView = root.findViewById(R.id.text_dashboard);
+        coinsearchViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

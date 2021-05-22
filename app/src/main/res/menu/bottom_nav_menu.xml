@@ -2,17 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_coin"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_coinSearch" />
-    <item
-        android:id="@+id/navigation_interested"
-        android:icon="@drawable/ic_search"
         android:title="@string/title_interested" />
+    <item
+        android:id="@+id/navigation_coin"
+        android:icon="@drawable/ic_search"
+        android:title="@string/title_coinSearch" />
 
     <item
         android:id="@+id/navigation_stock"
         android:icon="@drawable/ic_search"
         android:title="@string/title_stockSearch" />
-
 </menu>
