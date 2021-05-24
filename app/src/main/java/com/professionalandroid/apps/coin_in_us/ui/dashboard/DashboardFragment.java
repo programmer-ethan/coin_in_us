@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,6 +43,8 @@ public class DashboardFragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_dashboard);
         final TextView textView2 = root.findViewById(R.id.text_dashboard2);
         final TextView textView3 = root.findViewById(R.id.text_dashboard3);
+        final EditText editText = root.findViewById(R.id.edit);
+        final Button button = root.findViewById(R.id.edit_button);
         /*
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -67,6 +71,13 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 activity.coinfo((String)textView3.getText());
+
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.coinfo(editText.getText().toString());
 
             }
         });
