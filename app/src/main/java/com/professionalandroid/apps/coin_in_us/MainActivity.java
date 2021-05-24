@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     String merge_detail;
     String current_price;
     double rate;
+    Fragment fragment = new Coin_Info_Fragment();
     //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,103 +49,37 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-        //코인 정보 파트
-        Button BTC = (Button) findViewById(R.id.BTC);
-        Button XRP = (Button) findViewById(R.id.XRP);
-        Button ETH = (Button) findViewById(R.id.ETH);
-        Fragment fragment = new Coin_Info_Fragment();
-        //
-        BTC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //
-                urlStr = "https://api.bithumb.com/public/ticker/BTC_KRW";
-                RequestThread order_thread = new RequestThread();
-                order_thread.start();
-                //
-                handler.postDelayed(new Runnable()  {
-                    public void run() {
-                        urlStr = "https://api.bithumb.com/public/transaction_history/BTC_KRW";
-                        RequestThread ticker_thread = new RequestThread();
-                        ticker_thread.start();
-                    }
-                }, 250);
-                //
-                handler.postDelayed(new Runnable()  {
-                    public void run() {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("name", "비트코인 BTC");
-                        bundle.putString("detail", merge_detail);
-                        bundle.putString("current", current_price);
-                        bundle.putDouble("rate", rate);
-                        fragment.setArguments(bundle);
-                        //
-                        getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
-                    }
-                }, 500);
-            }
-        });
-        XRP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //
-                urlStr = "https://api.bithumb.com/public/ticker/XRP_KRW";
-                RequestThread thread = new RequestThread();
-                thread.start();
-                //
-                handler.postDelayed(new Runnable()  {
-                    public void run() {
-                        urlStr = "https://api.bithumb.com/public/transaction_history/XRP_KRW";
-                        RequestThread ticker_thread = new RequestThread();
-                        ticker_thread.start();
-                    }
-                }, 250);
-                //
-                handler.postDelayed(new Runnable()  {
-                    public void run() {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("name", "리플 XRP");
-                        bundle.putString("detail", merge_detail);
-                        bundle.putString("current", current_price);
-                        bundle.putDouble("rate", rate);
-                        fragment.setArguments(bundle);
-                        //
-                        getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
-                    }
-                }, 500);
-            }
-        });
-        ETH.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //
-                urlStr = "https://api.bithumb.com/public/ticker/ETH_KRW";
-                RequestThread thread = new RequestThread();
-                thread.start();
-                //
-                handler.postDelayed(new Runnable()  {
-                    public void run() {
-                        urlStr = "https://api.bithumb.com/public/transaction_history/ETH_KRW";
-                        RequestThread ticker_thread = new RequestThread();
-                        ticker_thread.start();
-                    }
-                }, 250);
-                handler.postDelayed(new Runnable()  {
-                    public void run() {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("name", "이더리움 ETH");
-                        bundle.putString("detail", merge_detail);
-                        bundle.putString("current", current_price);
-                        bundle.putDouble("rate", rate);
-                        fragment.setArguments(bundle);
-                        //
-                        getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
-                    }
-                }, 500);
-            }
-        });
     }
+    //
+    public void coinfo(String name) {
+        //
+        String coin_name = name;
+        urlStr = "https://api.bithumb.com/public/ticker/"+coin_name+"_KRW";
+        RequestThread order_thread = new RequestThread();
+        order_thread.start();
+        //
+        handler.postDelayed(new Runnable()  {
+            public void run() {
+                urlStr = "https://api.bithumb.com/public/transaction_history/"+coin_name+"_KRW";
+                RequestThread ticker_thread = new RequestThread();
+                ticker_thread.start();
+            }
+        }, 300);
+        //
+        handler.postDelayed(new Runnable()  {
+            public void run() {
+                Bundle bundle = new Bundle();
+                bundle.putString("name", name);
+                bundle.putString("detail", merge_detail);
+                bundle.putString("current", current_price);
+                bundle.putDouble("rate", rate);
+                fragment.setArguments(bundle);
+                //
+                getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, fragment).commit();
+            }
+        }, 400);
+    }
+    //
     class RequestThread extends Thread {
         @Override
         public void run() {
@@ -182,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                                 rate = data_json.getDouble("fluctate_rate_24H");
                                 String fluctate_rate_24H = nf.format(rate);
                                 long date = data_json.getLong("date");
-                                Date date_t = new Date(date + 32400000);
+                                Date date_t = new Date(date);
                                 SimpleDateFormat sdf = new SimpleDateFormat("MM월 dd일 a hh시 mm분 ss초");
                                 String tt = sdf.format(date_t);
                                 merge_detail = "--00시 기준--" + "\n시가 : " + opening_price
