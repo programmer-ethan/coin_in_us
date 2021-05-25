@@ -1,4 +1,4 @@
-package com.professionalandroid.apps.coin_in_us.ui.dashboard;
+package com.professionalandroid.apps.coin_in_us.ui.coinsearch;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.professionalandroid.apps.coin_in_us.MainActivity;
 import com.professionalandroid.apps.coin_in_us.R;
 
+<<<<<<< HEAD:app/src/main/java/com/professionalandroid/apps/coin_in_us/ui/dashboard/DashboardFragment.java
 public class DashboardFragment extends Fragment {
     //
     MainActivity activity;
@@ -47,6 +48,19 @@ public class DashboardFragment extends Fragment {
         final Button button = root.findViewById(R.id.edit_button);
         /*
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+=======
+public class CoinSearchFragment extends Fragment {
+
+    private CoinSearchViewModel coinsearchViewModel;
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        coinsearchViewModel =
+                new ViewModelProvider(this).get(CoinSearchViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_coin_search, container, false);
+        final TextView textView = root.findViewById(R.id.text_dashboard);
+        coinsearchViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+>>>>>>> origin/master:app/src/main/java/com/professionalandroid/apps/coin_in_us/ui/coinsearch/CoinSearchFragment.java
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

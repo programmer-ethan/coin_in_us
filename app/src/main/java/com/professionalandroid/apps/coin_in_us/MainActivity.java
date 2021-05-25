@@ -1,7 +1,11 @@
 package com.professionalandroid.apps.coin_in_us;
 
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.os.Handler;
+=======
+import android.widget.SearchView;
+>>>>>>> origin/master
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -12,6 +16,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+<<<<<<< HEAD
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -22,6 +27,11 @@ import java.net.URL;
 import java.sql.Date;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+=======
+import java.util.ServiceConfigurationError;
+
+public class MainActivity extends AppCompatActivity {
+>>>>>>> origin/master
 
 public class MainActivity extends AppCompatActivity {
     //
@@ -40,12 +50,13 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                R.id.navigation_coin, R.id.navigation_home, R.id.navigation_stock)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
+<<<<<<< HEAD
     //
     public void coinfo(String name) {
         //
@@ -314,3 +325,28 @@ public class MainActivity extends AppCompatActivity {
         return kor;
     }
 }
+=======
+
+}
+//coin _ search branch....
+//public class MainActivity extends AppCompatActivity {
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//        SearchView searchView;
+//        searchView = findViewById(R.id.search_view);
+//        BottomNavigationView navView = findViewById(R.id.nav_view);
+//        // Passing each menu ID as a set of Ids because each
+//        // menu should be considered as top level destinations.
+//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+//                 R.id.navigation_coin, R.id.navigation_home, R.id.navigation_stock)
+//                .build();
+//        NavController navController = Navigation.findNavController(this, R.id.nav_view);
+//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+//        NavigationUI.setupWithNavController(navView, navController);
+//    }
+//}
+>>>>>>> origin/master

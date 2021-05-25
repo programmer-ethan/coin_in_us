@@ -1,16 +1,16 @@
-package com.professionalandroid.apps.coin_in_us.ui.dashboard;
+package com.professionalandroid.apps.coin_in_us.ui.stocksearch;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class StockSearchViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public StockSearchViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {
