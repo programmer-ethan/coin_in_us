@@ -4,22 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
+<!-- 이걸 바꿨는데...-->
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.professionalandroid.apps.coin_in_us.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="@string/title_interested"
+        tools:layout="@layout/fragment_interested" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.professionalandroid.apps.coin_in_us.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_coin"
+        android:name="com.professionalandroid.apps.coin_in_us.ui.coinsearch.CoinSearchFragment"
+        android:label="@string/title_coinSearch"
+        tools:layout="@layout/fragment_coin_search" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.professionalandroid.apps.coin_in_us.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_stock"
+        android:name="com.professionalandroid.apps.coin_in_us.ui.stocksearch.StockSearchFragment"
+        android:label="@string/title_stockSearch"
+        tools:layout="@layout/fragment_stock_search" />
 </navigation>

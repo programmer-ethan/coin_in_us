@@ -1,4 +1,4 @@
-package com.professionalandroid.apps.coin_in_us.ui.dashboard;
+package com.professionalandroid.apps.coin_in_us.ui.stocksearch;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.professionalandroid.apps.coin_in_us.R;
 
-public class DashboardFragment extends Fragment {
+public class StockSearchFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private StockSearchViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        notificationsViewModel =
+                new ViewModelProvider(this).get(StockSearchViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_stock_search, container, false);
+        final TextView textView = root.findViewById(R.id.text_notifications);
+        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
