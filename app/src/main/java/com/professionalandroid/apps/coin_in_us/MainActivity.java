@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.professionalandroid.apps.coin_in_us.ui.coininfo.Coin_Info_Fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;

@@ -1,4 +1,4 @@
-package com.professionalandroid.apps.coin_in_us;
+package com.professionalandroid.apps.coin_in_us.ui.coininfo;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,9 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
+import com.professionalandroid.apps.coin_in_us.R;
 
 public class Coin_Info_Fragment extends Fragment {
     @Override

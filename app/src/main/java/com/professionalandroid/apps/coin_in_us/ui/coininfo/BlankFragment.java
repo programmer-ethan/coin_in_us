@@ -1,4 +1,4 @@
-package com.professionalandroid.apps.coin_in_us;
+package com.professionalandroid.apps.coin_in_us.ui.coininfo;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+
+import com.professionalandroid.apps.coin_in_us.R;
 
 public class BlankFragment extends Fragment {
     @Override
