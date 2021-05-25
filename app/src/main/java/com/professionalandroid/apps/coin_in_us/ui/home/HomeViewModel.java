@@ -25,7 +25,7 @@ public class HomeViewModel extends ViewModel {
     public HomeViewModel() {
         mText = new MutableLiveData<>();
 
-        mText.setValue("");
+        mText.setValue("COIN IN US");
     }
     public LiveData<String> getText() {
         return mText;
