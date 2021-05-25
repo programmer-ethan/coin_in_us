@@ -7,11 +7,9 @@
         android:title="@string/title_interested" />
     <item
         android:id="@+id/navigation_coin"
-        android:icon="@drawable/ic_search"
         android:title="@string/title_coinSearch" />
 
     <item
         android:id="@+id/navigation_stock"
-        android:icon="@drawable/ic_search"
         android:title="@string/title_stockSearch" />
 </menu>

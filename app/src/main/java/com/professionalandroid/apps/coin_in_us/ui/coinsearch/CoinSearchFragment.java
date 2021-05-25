@@ -16,8 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.professionalandroid.apps.coin_in_us.MainActivity;
 import com.professionalandroid.apps.coin_in_us.R;
 
-<<<<<<< HEAD:app/src/main/java/com/professionalandroid/apps/coin_in_us/ui/dashboard/DashboardFragment.java
-public class DashboardFragment extends Fragment {
+public class CoinSearchFragment extends Fragment {
     //
     MainActivity activity;
     @Override
@@ -33,19 +32,17 @@ public class DashboardFragment extends Fragment {
         activity = null;
     }
     //
-    private DashboardViewModel dashboardViewModel;
+    private CoinSearchViewModel coinSearchViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        coinSearchViewModel =
+                new ViewModelProvider(this).get(CoinSearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         final TextView textView = root.findViewById(R.id.text_dashboard);
         final TextView textView2 = root.findViewById(R.id.text_dashboard2);
         final TextView textView3 = root.findViewById(R.id.text_dashboard3);
-        final EditText editText = root.findViewById(R.id.edit);
-        final Button button = root.findViewById(R.id.edit_button);
         /*
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
 =======
@@ -85,13 +82,6 @@ public class CoinSearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 activity.coinfo((String)textView3.getText());
-
-            }
-        });
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.coinfo(editText.getText().toString());
 
             }
         });

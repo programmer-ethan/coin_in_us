@@ -1,11 +1,7 @@
 package com.professionalandroid.apps.coin_in_us;
 
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.os.Handler;
-=======
-import android.widget.SearchView;
->>>>>>> origin/master
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,7 +12,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-<<<<<<< HEAD
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -27,11 +22,6 @@ import java.net.URL;
 import java.sql.Date;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-=======
-import java.util.ServiceConfigurationError;
-
-public class MainActivity extends AppCompatActivity {
->>>>>>> origin/master
 
 public class MainActivity extends AppCompatActivity {
     //
@@ -56,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
-<<<<<<< HEAD
     //
     public void coinfo(String name) {
         //
@@ -325,9 +314,7 @@ public class MainActivity extends AppCompatActivity {
         return kor;
     }
 }
-=======
 
-}
 //coin _ search branch....
 //public class MainActivity extends AppCompatActivity {
 //
@@ -349,4 +336,3 @@ public class MainActivity extends AppCompatActivity {
 //        NavigationUI.setupWithNavController(navView, navController);
 //    }
 //}
->>>>>>> origin/master
