@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.stocksearch.StockSearchFragment">
+    tools:context=".ui.stocksearch.StockSearchActivity">
 
 
     <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="409dp"
+        android:id="@+id/stockSearch"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:iconifiedByDefault="false"
-        app:searchIcon="@drawable/ic_search"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-    </SearchView>
+        app:layout_constraintTop_toTopOf="parent"></SearchView>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="74dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView">
+        app:layout_constraintTop_toBottomOf="@+id/stockSearch"
+        >
 
 
         <Button
@@ -54,11 +50,13 @@
     </LinearLayout>
 
     <TableLayout
-        android:layout_width="413dp"
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
         android:layout_height="549dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintStart_toEndOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -99,7 +97,15 @@
                 android:textSize="18dp" />
 
         </TableRow>
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="492dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/tableLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tableLayout"></LinearLayout>
     </TableLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

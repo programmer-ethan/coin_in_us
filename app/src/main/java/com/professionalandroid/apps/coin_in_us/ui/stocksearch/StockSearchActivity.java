@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.professionalandroid.apps.coin_in_us.R;
-import com.professionalandroid.apps.coin_in_us.ui.stocksearch.ApiExplorer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -19,11 +18,15 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import java.io.IOException;
+import android.util.Log;
 
 
 public class StockSearchActivity extends AppCompatActivity {
+
+    private static final String TAG = "StockSearchActivity";
     private LinearLayout tableLayout;
     private SearchView search;
+    private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +41,15 @@ public class StockSearchActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        search = findViewById(R.id.searchView);
+        search = findViewById(R.id.stockSearch);
+        tableLayout = (LinearLayout) findViewById(R.id.linearLayout2);
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
+                // 입력받은 문자열 처리
+                textView.setText("오류 없음");
+                Log.i(TAG, textView.getText().toString());
                 try {
                     ApiExplorer.searchApi(s);
                 } catch (IOException e) {
@@ -53,11 +60,12 @@ public class StockSearchActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
+                // 입력란의 문자열이 바뀔 때 처리
                 return false;
             }
         });
 
-        tableLayout = (LinearLayout) findViewById(R.id.linearLayout2);
+
         TableRow tableRow = new TableRow(this);     // tablerow 생성
         tableRow.setLayoutParams(new TableRow.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -71,5 +79,6 @@ public class StockSearchActivity extends AppCompatActivity {
             tableRow.addView(textView);        // tableRow에 view 추가
         }
         tableLayout.addView(tableRow);        // tableLayout에 tableRow 추가
+
     }
 }
