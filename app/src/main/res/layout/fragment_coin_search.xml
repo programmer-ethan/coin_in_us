@@ -1,26 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <SearchView
+         android:id="@+id/search_View"
+        android:layout_width="409dp"
+        android:layout_height="60dp"
+        app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toTopOf="parent">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </SearchView>
+
+
+    <TableLayout
+        android:id="@+id/table_main"
+        android:layout_width="413dp"
+        android:layout_height="549dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintStarts_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_View">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:text="★"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/coin_symbol"
+                android:layout_width="133dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:text="한글명/심볼"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/coin_now"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:text="현재가"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/coin_percent"
+                android:layout_width="91dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:text="전일대비"
+                android:textSize="18dp" />
+
+
+        </TableRow>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+           <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:layout_constraintStart_toStartOf="parent">
+                <TableRow
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center" >
+                    <TextView
+                        android:id="@+id/coin_favorite"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:text="☆"
+                        android:textSize="18dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:id="@+id/coin_nm"
+                        android:layout_width="133dp"
+                        android:layout_height="40dp"
+                        android:text="이더리움/ETH"
+                        android:textSize="18dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:id="@+id/opening_price"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:text="2,500"
+                        android:textSize="18dp"/>
+                    <TextView
+                        android:id="@+id/fluctate_rate_24H"
+                        android:layout_width="91dp"
+                        android:layout_height="40dp"
+                        android:text="%2.5"
+                        android:textSize="18dp"
+                        android:layout_gravity="center"/>
+
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+
+
+
+    </TableLayout>
+
+
+
+<!--    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true" >
+
+        <HorizontalScrollView
+            android:id="@+id/hscrll1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TableLayout
+                    android:id="@id/table_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+                </TableLayout>
+            </RelativeLayout>
+        </HorizontalScrollView>
+        </ScrollView> -->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
