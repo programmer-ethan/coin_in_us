@@ -105,7 +105,7 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/tableLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tableLayout"></LinearLayout>
+            app:layout_constraintStart_toStartOf="@+id/tableLayout"/>
     </TableLayout>
 
 

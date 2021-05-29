@@ -1,5 +1,6 @@
 package com.professionalandroid.apps.coin_in_us.ui.stocksearch;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import com.professionalandroid.apps.coin_in_us.R;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.concurrent.ExecutionException;
 
 public class StockSearchFragment extends Fragment {
 
@@ -29,6 +31,8 @@ public class StockSearchFragment extends Fragment {
     private LinearLayout tableLayout;
     private SearchView search;
     private TextView textView;
+    public static String xmlList;
+    private ApiTask apiexplorer;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -37,7 +41,7 @@ public class StockSearchFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_stock_search, container, false);
 
         search = (SearchView) root.findViewById(R.id.stockSearch);
-        tableLayout = (LinearLayout) root.findViewById(R.id.tableLayout);
+        tableLayout = (LinearLayout) root.findViewById(R.id.linearLayout2);
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -49,9 +53,15 @@ public class StockSearchFragment extends Fragment {
                     urlBuilder.append("&" + URLEncoder.encode("secnNm","UTF-8") + "=" + URLEncoder.encode(s, "UTF-8")); /*번호별 회사명 관리*/
                     URL url = new URL(urlBuilder.toString());
 
-                    new ApiTask().execute(url);
+                    apiexplorer = new ApiTask();
+                    xmlList = apiexplorer.execute(url).get();
+                    System.out.println(xmlList);
 
                 } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
                     e.printStackTrace();
                 }
                 return true;
@@ -63,6 +73,8 @@ public class StockSearchFragment extends Fragment {
                 return false;
             }
         });
+
+
 
         return root;
     }
