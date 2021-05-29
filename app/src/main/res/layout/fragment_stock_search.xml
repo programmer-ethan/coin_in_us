@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".ui.stocksearch.StockSearchFragment"
     >
 
 
@@ -15,7 +16,8 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></SearchView>
+        app:layout_constraintTop_toTopOf="parent"
+        android:queryHint="*영어는 대소문자 구분"></SearchView>
 
     <LinearLayout
         android:id="@+id/linearLayout2"

@@ -19,6 +19,8 @@ import com.professionalandroid.apps.coin_in_us.R;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLEncoder;
 
 public class StockSearchFragment extends Fragment {
 
@@ -42,8 +44,13 @@ public class StockSearchFragment extends Fragment {
             public boolean onQueryTextSubmit(String s) {
                 // 입력받은 문자열 처리
                 try {
-                    System.out.println(s);
-                    ApiExplorer.searchApi(s);
+                    StringBuilder urlBuilder = new StringBuilder("http://api.seibro.or.kr/openapi/service/StockSvc/getStkIsinByNmN1"); /*URL*/
+                    urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=lG1p0ndDsxzYGHcM%2FQwNtO1vlTtBB3B00F9YTb%2F918rhSJ%2Flvtge6rSQAZULOdvwA9hTNGan%2BnasgZaolSCDtQ%3D%3D"); /*Service Key*/
+                    urlBuilder.append("&" + URLEncoder.encode("secnNm","UTF-8") + "=" + URLEncoder.encode(s, "UTF-8")); /*번호별 회사명 관리*/
+                    URL url = new URL(urlBuilder.toString());
+
+                    new ApiTask().execute(url);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
