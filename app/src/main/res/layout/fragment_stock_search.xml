@@ -64,38 +64,43 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+            >
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:background="@drawable/stock_info_table_inside_bottom"
                 android:gravity="center"
                 android:text="☆"
                 android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="133dp"
+                android:layout_width="140dp"
                 android:layout_height="40dp"
+                android:background="@drawable/stock_info_table_inside_bottom"
                 android:gravity="center"
-                android:text="종목명"
+                android:text="국문명"
                 android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="148dp"
+                android:layout_width="140dp"
                 android:layout_height="40dp"
+                android:background="@drawable/stock_info_table_inside_bottom"
                 android:gravity="center"
-                android:text="현재가"
+                android:text="영문명"
                 android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="91dp"
                 android:layout_height="40dp"
+                android:background="@drawable/stock_info_table_inside_bottom"
                 android:gravity="center"
-                android:text="전일대비"
+                android:text="주식종류"
                 android:textSize="18dp" />
 
         </TableRow>

@@ -1,5 +1,6 @@
 package com.professionalandroid.apps.coin_in_us;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.SearchView;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 }
 //coin _ search branch....

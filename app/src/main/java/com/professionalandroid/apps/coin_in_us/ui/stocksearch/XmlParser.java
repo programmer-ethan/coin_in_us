@@ -25,28 +25,53 @@ public class XmlParser {
                 // 최상위 노드 찾기
                 Element element = doc.getDocumentElement();
                 // 원하는 태그 데이터 찾아오기
-                NodeList engNameList = element.getElementsByTagName("engSecnNm");
-                NodeList korNameList = element.getElementsByTagName("korSecnNm");
-                NodeList kindOfList = element.getElementsByTagName("secnKacdNm");
+                NodeList item1 = element.getElementsByTagName("korSecnNm");
+                NodeList item2 = element.getElementsByTagName("engSecnNm");
+                NodeList item3 = element.getElementsByTagName("secnKacdNm");
+                NodeList item4 = element.getElementsByTagName("issucoCustno");
+                NodeList item5 = element.getElementsByTagName("isin");
+                NodeList item6 = element.getElementsByTagName("issuDt");
+                NodeList item7 = element.getElementsByTagName("shotnIsin");
                 // 데이터 개수 찾이오기
-                int n = korNameList.getLength();
-                result = new String[n][3];
+                int n = item1.getLength();
+                result = new String[n][7];
                 for (int i = 0; i < n; i++) {
 
-                    Node item = engNameList.item(i);
+                    Node item = item1.item(i);
                     Node text = item.getFirstChild();
                     String itemValue = text.getNodeValue();
                     result[i][0] = itemValue;
 
-                    Node item1 = korNameList.item(i);
-                    Node text1 = item1.getFirstChild();
-                    String itemValue1 = text1.getNodeValue();
-                    result[i][1] = itemValue1;
+                    item = item2.item(i);
+                    text = item.getFirstChild();
+                    itemValue = text.getNodeValue();
+                    result[i][1] = itemValue;
 
-                    Node item2 = kindOfList.item(i);
-                    Node text2 = item2.getFirstChild();
-                    String itemValue2 = text2.getNodeValue();
-                    result[i][2] = itemValue2;
+                    item = item3.item(i);
+                    text = item.getFirstChild();
+                    itemValue = text.getNodeValue();
+                    result[i][2] = itemValue;
+
+                    item = item4.item(i);
+                    text = item.getFirstChild();
+                    itemValue = text.getNodeValue();
+                    result[i][3] = itemValue;
+
+                    item = item5.item(i);
+                    text = item.getFirstChild();
+                    itemValue = text.getNodeValue();
+                    result[i][4] = itemValue;
+
+                    item = item6.item(i);
+                    text = item.getFirstChild();
+                    itemValue = text.getNodeValue();
+                    result[i][5] = itemValue;
+
+                    item = item7.item(i);
+                    text = item.getFirstChild();
+                    itemValue = text.getNodeValue();
+                    result[i][6] = itemValue;
+
                 }
             }
         }catch (Exception e) {

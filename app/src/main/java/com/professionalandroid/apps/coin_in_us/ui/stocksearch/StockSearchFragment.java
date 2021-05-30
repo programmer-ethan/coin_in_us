@@ -1,10 +1,12 @@
 package com.professionalandroid.apps.coin_in_us.ui.stocksearch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TableRow;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.professionalandroid.apps.coin_in_us.MainActivity;
 import com.professionalandroid.apps.coin_in_us.R;
 
 
@@ -29,7 +33,7 @@ public class StockSearchFragment extends Fragment {
     private TextView textView;
     private String xml;
     private ApiTask apiExplorer;
-    private String[][] parsingData;
+    private static String[][] parsingData;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,22 +58,27 @@ public class StockSearchFragment extends Fragment {
                     parsingData = XmlParser.xmlparse(xml);
 
                     tableLayout = (LinearLayout) root.findViewById(R.id.linearLayout2);
-
-                    TableRow tableRow = new TableRow(StockSearchFragment.this);     // tablerow 생성
+                    TableRow tableRow = new TableRow(root.getContext());     // tablerow 생성
                     tableRow.setLayoutParams(new TableRow.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT));
+                    for (int j = 0 ; j < parsingData.length; j++) {
 
-                    for(int i = 0 ; i < 5 ; i++) {
-                        TextView textView = new TextView();
-                        textView.setText();
-                        textView.setGravity(Gravity.CENTER);
-                        textView.setTextSize(36);
-                        tableRow.addView(textView);		// tableRow에 view 추가
+                        Button star = new Button(root.getContext());
+
+                        for(int i = 0 ; i < 3 ; i++) {
+                            TextView textView = new TextView(root.getContext());
+                            textView.setText(parsingData[j][i]);
+                            textView.setGravity(Gravity.CENTER);
+                            textView.setTextSize(18);
+                            tableRow.addView(textView);
+                        }
+                        tableRow.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) { stock(); }
+                        });
+                        tableLayout.addView(tableRow);
                     }
-                    tableLayout.addView(tableRow);		// tableLayout에 tableRow 추가
-
-
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -88,9 +97,16 @@ public class StockSearchFragment extends Fragment {
             }
         });
 
-
-
         return root;
+    }
+
+    public String[][] getParsingData() {
+        return parsingData;
+    }
+
+    public void stock() {
+        Intent intent = new Intent(this, StockInfo.class);
+        startActivity(intent);
     }
 
 }
