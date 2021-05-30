@@ -1,22 +1,19 @@
 package com.professionalandroid.apps.coin_in_us.ui.stocksearch;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.professionalandroid.apps.coin_in_us.R;
-
 
 
 import java.io.IOException;
@@ -27,12 +24,12 @@ import java.util.concurrent.ExecutionException;
 public class StockSearchFragment extends Fragment {
 
     private StockSearchViewModel stocksearchViewModel;
-    private String TAG = "yaya";
     private LinearLayout tableLayout;
     private SearchView search;
     private TextView textView;
-    public static String xmlList;
-    private ApiTask apiexplorer;
+    private String xml;
+    private ApiTask apiExplorer;
+    private String[][] parsingData;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +38,6 @@ public class StockSearchFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_stock_search, container, false);
 
         search = (SearchView) root.findViewById(R.id.stockSearch);
-        tableLayout = (LinearLayout) root.findViewById(R.id.linearLayout2);
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -53,9 +49,27 @@ public class StockSearchFragment extends Fragment {
                     urlBuilder.append("&" + URLEncoder.encode("secnNm","UTF-8") + "=" + URLEncoder.encode(s, "UTF-8")); /*번호별 회사명 관리*/
                     URL url = new URL(urlBuilder.toString());
 
-                    apiexplorer = new ApiTask();
-                    xmlList = apiexplorer.execute(url).get();
-                    System.out.println(xmlList);
+                    apiExplorer = new ApiTask();
+                    xml = apiExplorer.execute(url).get();
+                    parsingData = XmlParser.xmlparse(xml);
+
+                    tableLayout = (LinearLayout) root.findViewById(R.id.linearLayout2);
+
+                    TableRow tableRow = new TableRow(StockSearchFragment.this);     // tablerow 생성
+                    tableRow.setLayoutParams(new TableRow.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT));
+
+                    for(int i = 0 ; i < 5 ; i++) {
+                        TextView textView = new TextView();
+                        textView.setText();
+                        textView.setGravity(Gravity.CENTER);
+                        textView.setTextSize(36);
+                        tableRow.addView(textView);		// tableRow에 view 추가
+                    }
+                    tableLayout.addView(tableRow);		// tableLayout에 tableRow 추가
+
+
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -78,4 +92,5 @@ public class StockSearchFragment extends Fragment {
 
         return root;
     }
+
 }
