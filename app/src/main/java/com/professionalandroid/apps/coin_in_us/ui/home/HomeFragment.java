@@ -20,8 +20,8 @@ import com.professionalandroid.apps.coin_in_us.MainActivity;
 public class HomeFragment extends Fragment{
 
     private HomeViewModel homeViewModel;
-//    writeSharedPreference(View view);
-public void writeSharedPreference(View view){
+
+    public void writeSharedPreference(View view){
 //        EditText txtValue = (EditText) findViewById(R.id.saved_data);
 //        String value = txtValue.getText().toString();
     // 1. get Shared Preference
@@ -49,46 +49,6 @@ public void writeSharedPreference(View view){
 ////        txtValue.setText(value);
 //    }
 
-//    SharedPreferences interestedList;
-//    SharedPreferences.Editor editor;
-
-//    Context context = getActivity();
-//    SharedPreferences sharedPref = context.getSharedPreferences(
-//            getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-
-//    int myInt;
-//    String myStr;
-//    TextView tabletext1, tabletext2;
-//
-//    SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-//    SharedPreferences.Editor editor = sharedPref.edit();
-
-//    editor.putInt(
-//
-//    void getString(R.string.saved_data), newHighScore);
-//    editor.commit();
-
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-
-
-        // 5. 각 버튼 클릭시 새로운 값 저장
-//        btn01.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                myInt = Integer.parseInt(et01.getText().toString()); // int Max값 넘게 입력하면 오류 주의.
-//                editor.putInt("MyInt", myInt);
-//                editor.apply(); // 저장
-//            }
-//        });
-//        btn02.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                myStr = et02.getText().toString();
-//                editor.putString("MyStr", myStr);
-//                editor.apply(); // 저장
-//            }
-//        });
 
 
 
@@ -103,30 +63,27 @@ public void writeSharedPreference(View view){
         // 2. get Editor
         SharedPreferences.Editor editor = sharedPreference.edit();
         // 3. set Key values
-        editor.putString("MYKEY","VALUE1");
-        editor.putString("KEY2", "VALUE2");
+        editor.putString("COIN_NAME_1","카카오");
+        editor.putString("COIN_VALUE_1", "118,000");
+        editor.putString("STOCK_NAME_1","비트코인");
+        editor.putString("STOCK_VALUE_1", "59,440,000");
         // 4. commit the values
         editor.commit();
         // getting Shared preference from other application
         SharedPreferences pref
                 = context.getSharedPreferences("MYPREFRENCE", Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
-        String value = pref.getString("MYKEY", "NOTFOUND");
-        TextView txtValue = root.findViewById(R.id.shared_data);
-        txtValue.setText(value);
-//        // 1. Shared Preference 초기화
-//        interestedList = getSharedPreferences("interestedList", Activity.MODE_PRIVATE);
-//        editor = interestedList.edit();
-//
-//        // 2. 저장해둔 값 불러오기 ("식별값", 초기값) -> 식별값과 초기값은 직접 원하는 이름과 값으로 작성.
-//        myInt = interestedList.getInt("MyInt", 0);        // int 불러오기 (저장해둔 값 없으면 초기값인 0으로 불러옴)
-//        myStr = interestedList.getString("MyStr", "_");   // String 불러오기 (저장해둔 값 없으면 초기값인 _으로 불러옴)
-//
-//        // 3. 레이아웃 변수 초기화
-//        tabletext1 = findViewById(R.id.textView2); et02 = findViewById(R.id.textView2);
-//        tabletext2 = findViewById(R.id.textView3); btn02 = findViewById(R.id.textView3);
-//
-//        // 4. 앱을 새로 켜면 이전에 저장해둔 값이 표시됨
-//        tabletext1.setText(String.valueOf(myInt)); tabletext2.setText(myStr);
+        String name1 = pref.getString("COIN_NAME_1", "NOTFOUND");
+        String value1 = pref.getString("COIN_VALUE_1", "NOTFOUND");
+        String name2 = pref.getString("STOCK_NAME_1", "NOTFOUND");
+        String value2 = pref.getString("STOCK_VALUE_1", "NOTFOUND");
+        TextView txtValue = root.findViewById(R.id.coin_name_1);
+        txtValue.setText(name1);
+        TextView txtValue2 = root.findViewById(R.id.coin_value_1);
+        txtValue2.setText(value1);
+        TextView txtValue3 = root.findViewById(R.id.stock_name_1);
+        txtValue3.setText(name2);
+        TextView txtValue4 = root.findViewById(R.id.stock_value_1);
+        txtValue4.setText(value2);
 
 
 
