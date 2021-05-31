@@ -9,4 +9,6 @@
     <string name="table_no">No.</string>
     <string name="table_name">Name</string>
     <string name="table_value">Value</string>
+    <string name="preference_file_key">key</string>
+    <string name="saved_data">sharedPre-Success</string>
 </resources>
