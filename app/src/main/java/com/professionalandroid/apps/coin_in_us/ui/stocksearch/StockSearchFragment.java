@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
+import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ public class StockSearchFragment extends Fragment {
     private String xml;
     private ApiTask apiExplorer;
     private static String[][] parsingData;
+    float pixels;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +50,10 @@ public class StockSearchFragment extends Fragment {
             public boolean onQueryTextSubmit(String s) {
                 // 입력받은 문자열 처리
                 try {
+                    tableLayout = (TableLayout) root.findViewById(R.id.stocktableLayout);
+                    pixels = getContext().getResources().getDisplayMetrics().density;
+                    tableLayout.removeViews(1,tableLayout.getChildCount()-1);
+
                     StringBuilder urlBuilder = new StringBuilder("http://api.seibro.or.kr/openapi/service/StockSvc/getStkIsinByNmN1"); /*URL*/
                     urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=lG1p0ndDsxzYGHcM%2FQwNtO1vlTtBB3B00F9YTb%2F918rhSJ%2Flvtge6rSQAZULOdvwA9hTNGan%2BnasgZaolSCDtQ%3D%3D"); /*Service Key*/
                     urlBuilder.append("&" + URLEncoder.encode("secnNm","UTF-8") + "=" + URLEncoder.encode(s, "UTF-8")); /*번호별 회사명 관리*/
@@ -57,29 +63,41 @@ public class StockSearchFragment extends Fragment {
                     xml = apiExplorer.execute(url).get();
                     parsingData = XmlParser.xmlparse(xml);
 
-                    tableLayout = (LinearLayout) root.findViewById(R.id.linearLayout2);
-                    TableRow tableRow = new TableRow(root.getContext());     // tablerow 생성
-                    tableRow.setLayoutParams(new TableRow.LayoutParams(
-                            ViewGroup.LayoutParams.MATCH_PARENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT));
-                    for (int j = 0 ; j < parsingData.length; j++) {
+                    for (int j = 0 ; j < parsingData.length ; j++) {
 
-                        Button star = new Button(root.getContext());
+                        TableRow tableRow = new TableRow(getContext());     // tablerow 생성
+                        tableRow.setLayoutParams(new TableRow.LayoutParams(
+                                ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT));
 
-                        for(int i = 0 ; i < 3 ; i++) {
-                            TextView textView = new TextView(root.getContext());
+                        Button star = new Button(getContext());
+                        tableRow.addView(star);
+
+                        for(int i = 0 ; i < 2 ; i++) {
+
+                            TextView textView = new TextView(getContext());
                             textView.setText(parsingData[j][i]);
                             textView.setGravity(Gravity.CENTER);
                             textView.setTextSize(18);
+                            textView.setHeight((int)(55*pixels));
+                            textView.setWidth((int)(140*pixels));
                             tableRow.addView(textView);
                         }
+                        TextView textView = new TextView(getContext());
+                        textView.setText(parsingData[j][2]);
+                        textView.setGravity(Gravity.CENTER);
+                        textView.setTextSize(18);
+                        textView.setHeight((int)(55*pixels));
+                        textView.setWidth((int)(91*pixels));
+                        tableRow.addView(textView);
+                        /*
                         tableRow.setOnClickListener(new View.OnClickListener() {
                             @Override
-                            public void onClick(View v) { stock(); }
+                            public void onClick(View v) {}
                         });
+                         */
                         tableLayout.addView(tableRow);
                     }
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
@@ -104,9 +122,11 @@ public class StockSearchFragment extends Fragment {
         return parsingData;
     }
 
+    /*
     public void stock() {
-        Intent intent = new Intent(this, StockInfo.class);
+        Intent intent = new Intent(getActivity(), StockInfo.class);
         startActivity(intent);
     }
+     */
 
 }
