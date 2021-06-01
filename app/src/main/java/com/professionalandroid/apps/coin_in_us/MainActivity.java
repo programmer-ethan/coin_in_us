@@ -3,8 +3,13 @@ package com.professionalandroid.apps.coin_in_us;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.os.Handler;
+import android.view.ViewGroup;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.professionalandroid.apps.coin_in_us.ui.coininfo.Coin_Info_Fragment;
@@ -35,6 +40,169 @@ public class MainActivity extends AppCompatActivity {
     String current_price;
     double rate;
     Fragment fragment = new Coin_Info_Fragment();
+    String[] kor_coin_arr = {"이더리움",
+            "리플",
+            "비트코인",
+            "이더리움 클래식",
+            "에이다",
+            "이오스",
+            "링크플로우",
+            "연파이낸스",
+            "비트코인 캐시",
+            "도지코인",
+            "루나",
+            "앵커뉴럴월드",
+            "퀀텀",
+            "비트토렌트",
+            "폴카닷",
+            "비체인",
+            "라이트코인",
+            "어셈블프로토콜",
+            "스텔라루멘",
+            "체인링크",
+            "마일벌스",
+            "트론",
+            "온톨로지가스",
+            "디브이피",
+            "오미세고",
+            "메이커",
+            "클레이튼",
+            "비트코인에스브이",
+            "아이젝",
+            "비트코인 다이아몬드",
+            "제노토큰",
+            "스와이프",
+            "펀디엑스",
+            "오르빗 체인",
+            "디센트럴랜드",
+            "엔진코인",
+            "넴",
+            "비트코인 골드",
+            "버거스왑",
+            "피르마체인",
+            "콜라토큰",
+            "하이브",
+            "쎄타토큰",
+            "아로와나토큰",
+            "테조스",
+            "유니스왑",
+            "어거",
+            "스팀",
+            "온톨로지",
+            "웨이브",
+            "스시스왑",
+            "쎄타퓨엘",
+            "알파쿼크",
+            "원루트 네트워크",
+            "샌드박스",
+            "밀크",
+            "라이브피어",
+            "코스모스",
+            "세럼",
+            "템코",
+            "디비전",
+            "더그래프",
+            "아모코인",
+            "보라",
+            "컴파운드",
+            "오로라",
+            "퀴즈톡",
+            "메탈",
+            "너보스",
+            "스테이터스네트워크토큰",
+            "베이직어텐션토큰",
+            "썸씽",
+            "우마",
+            "제로엑스",
+            "이오스트",
+            "신세틱스",
+            "앵커",
+            "지엑스체인",
+            "보아",
+            "오브스",
+            "크립토닷컴체인",
+            "사이버베인",
+            "무비블록",
+            "애니버스",
+            "메타디움",
+            "에이브",
+            "카이버 네트워크",
+            "드래곤베인",
+            "더마이다스터치골드",
+            "쿼크체인",
+            "마이네이버앨리스",
+            "폴라리스 쉐어",
+            "미러 프로토콜",
+            "람다",
+            "누사이퍼",
+            "왁스",
+            "알고랜드",
+            "엘리시아",
+            "바이오패스포트",
+            "다빈치",
+            "엠씨아이",
+            "칠리즈",
+            "아르고",
+            "옵저버",
+            "비트코인 캐시 에이비씨",
+            "이브이지",
+            "펑션엑스",
+            "플레타",
+            "리니어파이낸스",
+            "질리카",
+            "트루체인",
+            "아이콘",
+            "오키드",
+            "스트라티스",
+            "위믹스",
+            "웨이키체인",
+            "크로미아",
+            "에이치닥",
+            "300피트 네트워크",
+            "룸네트워크",
+            "맵프로토콜",
+            "썬",
+            "코르텍스",
+            "파워렛저",
+            "프로톤",
+            "엘프",
+            "저스트",
+            "월튼체인",
+            "이마이너",
+            "벨라프로토콜",
+            "루프링",
+            "오션프로토콜",
+            "베이직",
+            "아이온",
+            "콘텐토스",
+            "어댑터 토큰",
+            "퀸비",
+            "네스트리",
+            "라이파이낸스",
+            "골렘",
+            "애터니티",
+            "믹스마블",
+            "코넌",
+            "이포스",
+            "알파체인",
+            "애프앤비프로토콜",
+            "랠리",
+            "링엑스",
+            "소다코인",
+            "밀리미터토큰",
+            "브이시스템즈",
+            "고머니2",
+            "아픽스",
+            "머신익스체인지코인",
+            "왐토큰",
+            "트러스트버스",
+            "프레시움",
+            "에이아이워크",
+            "타키온프로토콜",
+            "다드",
+            "센트럴리티",
+            "에이피엠 코인",
+            "밸러토큰"};
     //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +232,45 @@ public class MainActivity extends AppCompatActivity {
         // 4. commit the values
         editor.commit();
     }
+    //
+    public void coinrow(String coin){
+        //
 
+        String[] forprint = new String[163];
+        int count = 0;
+        int k = 0;
+        for(int i = 0 ; i < 163 ; i++){
+            if(kor_coin_arr[i].contains(coin)){
+                forprint[k] = kor_coin_arr[i];
+                count++;
+                k++;
+            }
+        }
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.cointableLayout);
+        for(int j = 0 ; j < count ; j++) {
+            TableRow tableRow = new TableRow(this);
+            tableRow.setLayoutParams(new TableRow.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            for (int i = 0; i < 4; i++) {
+                TextView textView = new TextView(this);
+                if(i == 0){
+                    textView.setText("★");
+                }
+                else if(i == 1) {
+                    textView.setText(forprint[j]);
+                }
+                else if(i == 2){
+                    textView.setText("현재가");
+                    textView.setGravity(Gravity.RIGHT);
+                }
+                else if(i == 3){
+                    textView.setText("몇%");
+                    textView.setGravity(Gravity.RIGHT);
+                }
+                tableRow.addView(textView);
+            }
+            tableLayout.addView(tableRow);
+        }
+    }
     //
     public void coinfo(String name) {
         //
@@ -331,5 +537,172 @@ public class MainActivity extends AppCompatActivity {
         else if(symbol.equals("APM")) kor = "에이피엠 코인";
         else if(symbol.equals("VALOR")) kor = "밸러토큰";
         return kor;
+    }
+    public String kortosymbol (String kor){
+        String symbol = null;
+        if(kor.equals("이더리움")) symbol = "ETH";
+        else if(kor.equals("리플")) symbol = "XRP";
+        else if(kor.equals("비트코인")) symbol = "BTC";
+        else if(kor.equals("이더리움 클래식")) symbol = "ETC";
+        else if(kor.equals("에이다")) symbol = "ADA";
+        else if(kor.equals("이오스")) symbol = "EOS";
+        else if(kor.equals("링크플로우")) symbol = "LF";
+        else if(kor.equals("연파이낸스")) symbol = "YFI";
+        else if(kor.equals("비트코인 캐시")) symbol = "BCH";
+        else if(kor.equals("도지코인")) symbol = "DOGE";
+        else if(kor.equals("루나")) symbol = "LUNA";
+        else if(kor.equals("앵커뉴럴월드")) symbol = "ANW";
+        else if(kor.equals("퀀텀")) symbol = "QTUM";
+        else if(kor.equals("비트토렌트")) symbol = "BTT";
+        else if(kor.equals("폴카닷")) symbol = "DOT";
+        else if(kor.equals("비체인")) symbol = "VET";
+        else if(kor.equals("라이트코인")) symbol = "LTC";
+        else if(kor.equals("어셈블프로토콜")) symbol = "ASM";
+        else if(kor.equals("스텔라루멘")) symbol = "XLM";
+        else if(kor.equals("체인링크")) symbol = "LINK";
+        else if(kor.equals("마일벌스")) symbol = "MVC";
+        else if(kor.equals("트론")) symbol = "TRX";
+        else if(kor.equals("온톨로지가스")) symbol = "ONG";
+        else if(kor.equals("디브이피")) symbol = "DVP";
+        else if(kor.equals("오미세고")) symbol = "OMG";
+        else if(kor.equals("메이커")) symbol = "MKR";
+        else if(kor.equals("클레이튼")) symbol = "KLAY";
+        else if(kor.equals("비트코인에스브이")) symbol = "BSV";
+        else if(kor.equals("아이젝")) symbol = "RLC";
+        else if(kor.equals("비트코인 다이아몬드")) symbol = "BCD";
+        else if(kor.equals("제노토큰")) symbol = "XNO";
+        else if(kor.equals("스와이프")) symbol = "SXP";
+        else if(kor.equals("펀디엑스")) symbol = "PUNDIX";
+        else if(kor.equals("오르빗 체인")) symbol = "ORC";
+        else if(kor.equals("디센트럴랜드")) symbol = "MANA";
+        else if(kor.equals("엔진코인")) symbol = "ENJ";
+        else if(kor.equals("넴")) symbol = "XEM";
+        else if(kor.equals("비트코인 골드")) symbol = "BTG";
+        else if(kor.equals("버거스왑")) symbol = "BURGER";
+        else if(kor.equals("피르마체인")) symbol = "FCT";
+        else if(kor.equals("콜라토큰")) symbol = "COLA";
+        else if(kor.equals("하이브")) symbol = "HIVE";
+        else if(kor.equals("쎄타토큰")) symbol = "THETA";
+        else if(kor.equals("아로와나토큰")) symbol = "ARW";
+        else if(kor.equals("테조스")) symbol = "XTZ";
+        else if(kor.equals("유니스왑")) symbol = "UNI";
+        else if(kor.equals("어거")) symbol = "REP";
+        else if(kor.equals("스팀")) symbol = "STEEM";
+        else if(kor.equals("온톨로지")) symbol = "ONT";
+        else if(kor.equals("웨이브")) symbol = "WAVES";
+        else if(kor.equals("스시스왑")) symbol = "SUSHI";
+        else if(kor.equals("쎄타퓨엘")) symbol = "TFUEL";
+        else if(kor.equals("알파쿼크")) symbol = "AQT";
+        else if(kor.equals("원루트 네트워크")) symbol = "RNT";
+        else if(kor.equals("샌드박스")) symbol = "SAND";
+        else if(kor.equals("밀크")) symbol = "MLK";
+        else if(kor.equals("라이브피어")) symbol = "LPT";
+        else if(kor.equals("코스모스")) symbol = "ATOM";
+        else if(kor.equals("세럼")) symbol = "SRM";
+        else if(kor.equals("템코")) symbol = "TEMCO";
+        else if(kor.equals("디비전")) symbol = "DVI";
+        else if(kor.equals("더그래프")) symbol = "GRT";
+        else if(kor.equals("아모코인")) symbol = "AMO";
+        else if(kor.equals("보라")) symbol = "BORA";
+        else if(kor.equals("컴파운드")) symbol = "COMP";
+        else if(kor.equals("오로라")) symbol = "AOA";
+        else if(kor.equals("퀴즈톡")) symbol = "QTCON";
+        else if(kor.equals("메탈")) symbol = "MTL";
+        else if(kor.equals("너보스")) symbol = "CKB";
+        else if(kor.equals("스테이터스네트워크토큰")) symbol = "SNT";
+        else if(kor.equals("베이직어텐션토큰")) symbol = "BAT";
+        else if(kor.equals("썸씽")) symbol = "SSX";
+        else if(kor.equals("우마")) symbol = "UMA";
+        else if(kor.equals("제로엑스")) symbol = "ZRX";
+        else if(kor.equals("이오스트")) symbol = "IOST";
+        else if(kor.equals("신세틱스")) symbol = "SNX";
+        else if(kor.equals("앵커")) symbol = "ANKR";
+        else if(kor.equals("지엑스체인")) symbol = "GXC";
+        else if(kor.equals("보아")) symbol = "BOA";
+        else if(kor.equals("오브스")) symbol = "ORBS";
+        else if(kor.equals("크립토닷컴체인")) symbol = "CRO";
+        else if(kor.equals("사이버베인")) symbol = "CVT";
+        else if(kor.equals("무비블록")) symbol = "MBL";
+        else if(kor.equals("애니버스")) symbol = "ANV";
+        else if(kor.equals("메타디움")) symbol = "META";
+        else if(kor.equals("에이브")) symbol = "AAVE";
+        else if(kor.equals("카이버 네트워크")) symbol = "KNC";
+        else if(kor.equals("드래곤베인")) symbol = "DVC";
+        else if(kor.equals("더마이다스터치골드")) symbol = "TMTG";
+        else if(kor.equals("쿼크체인")) symbol = "QKC";
+        else if(kor.equals("마이네이버앨리스")) symbol = "ALICE";
+        else if(kor.equals("폴라리스 쉐어")) symbol = "POLA";
+        else if(kor.equals("미러 프로토콜")) symbol = "MIR";
+        else if(kor.equals("람다")) symbol = "LAMB";
+        else if(kor.equals("누사이퍼")) symbol = "NU";
+        else if(kor.equals("왁스")) symbol = "WAXP";
+        else if(kor.equals("알고랜드")) symbol = "ALGO";
+        else if(kor.equals("엘리시아")) symbol = "EL";
+        else if(kor.equals("바이오패스포트")) symbol = "BIOT";
+        else if(kor.equals("다빈치")) symbol = "DAC";
+        else if(kor.equals("엠씨아이")) symbol = "MCI";
+        else if(kor.equals("칠리즈")) symbol = "CHZ";
+        else if(kor.equals("아르고")) symbol = "AERGO";
+        else if(kor.equals("옵저버")) symbol = "OBSR";
+        else if(kor.equals("비트코인 캐시 에이비씨")) symbol = "BCHA";
+        else if(kor.equals("이브이지")) symbol = "EVZ";
+        else if(kor.equals("펑션엑스")) symbol = "FX";
+        else if(kor.equals("플레타")) symbol = "FLETA";
+        else if(kor.equals("리니어파이낸스")) symbol = "LINA";
+        else if(kor.equals("질리카")) symbol = "ZIL";
+        else if(kor.equals("트루체인")) symbol = "TRUE";
+        else if(kor.equals("아이콘")) symbol = "ICX";
+        else if(kor.equals("오키드")) symbol = "OXT";
+        else if(kor.equals("스트라티스")) symbol = "STRAX";
+        else if(kor.equals("위믹스")) symbol = "WEMIX";
+        else if(kor.equals("웨이키체인")) symbol = "WICC";
+        else if(kor.equals("크로미아")) symbol = "CHR";
+        else if(kor.equals("에이치닥")) symbol = "HDAC";
+        else if(kor.equals("300피트 네트워크")) symbol = "FIT";
+        else if(kor.equals("룸네트워크")) symbol = "LOOM";
+        else if(kor.equals("맵프로토콜")) symbol = "MAP";
+        else if(kor.equals("썬")) symbol = "SUN";
+        else if(kor.equals("코르텍스")) symbol = "CTXC";
+        else if(kor.equals("파워렛저")) symbol = "POWR";
+        else if(kor.equals("프로톤")) symbol = "XPR";
+        else if(kor.equals("엘프")) symbol = "ELF";
+        else if(kor.equals("저스트")) symbol = "JST";
+        else if(kor.equals("월튼체인")) symbol = "WTC";
+        else if(kor.equals("이마이너")) symbol = "EM";
+        else if(kor.equals("벨라프로토콜")) symbol = "BEL";
+        else if(kor.equals("루프링")) symbol = "LRC";
+        else if(kor.equals("오션프로토콜")) symbol = "OCEAN";
+        else if(kor.equals("베이직")) symbol = "BASIC";
+        else if(kor.equals("아이온")) symbol = "AION";
+        else if(kor.equals("콘텐토스")) symbol = "COS";
+        else if(kor.equals("어댑터 토큰")) symbol = "ADP";
+        else if(kor.equals("퀸비")) symbol = "QBZ";
+        else if(kor.equals("네스트리")) symbol = "EGG";
+        else if(kor.equals("라이파이낸스")) symbol = "RAI";
+        else if(kor.equals("골렘")) symbol = "GLM";
+        else if(kor.equals("애터니티")) symbol = "AE";
+        else if(kor.equals("믹스마블")) symbol = "MIX";
+        else if(kor.equals("코넌")) symbol = "CON";
+        else if(kor.equals("이포스")) symbol = "WOZX";
+        else if(kor.equals("알파체인")) symbol = "ARPA";
+        else if(kor.equals("애프앤비프로토콜")) symbol = "FNB";
+        else if(kor.equals("랠리")) symbol = "RLY";
+        else if(kor.equals("링엑스")) symbol = "RINGX";
+        else if(kor.equals("소다코인")) symbol = "SOC";
+        else if(kor.equals("밀리미터토큰")) symbol = "MM";
+        else if(kor.equals("브이시스템즈")) symbol = "VSYS";
+        else if(kor.equals("고머니2")) symbol = "GOM2";
+        else if(kor.equals("아픽스")) symbol = "APIX";
+        else if(kor.equals("머신익스체인지코인")) symbol = "MXC";
+        else if(kor.equals("왐토큰")) symbol = "WOM";
+        else if(kor.equals("트러스트버스")) symbol = "TRV";
+        else if(kor.equals("프레시움")) symbol = "PCM";
+        else if(kor.equals("에이아이워크")) symbol = "AWO";
+        else if(kor.equals("타키온프로토콜")) symbol = "IPX";
+        else if(kor.equals("다드")) symbol = "DAD";
+        else if(kor.equals("센트럴리티")) symbol = "CENNZ";
+        else if(kor.equals("에이피엠 코인")) symbol = "APM";
+        else if(kor.equals("밸러토큰")) symbol = "VALOR";
+        return symbol;
     }
 }
