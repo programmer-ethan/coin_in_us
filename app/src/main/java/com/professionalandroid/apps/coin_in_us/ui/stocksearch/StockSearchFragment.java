@@ -138,9 +138,10 @@ public class StockSearchFragment extends Fragment {
         String[][] dataList = getParsingData();
 
         for (int i = 0; i < dataList.length ; i++) {
-            if(dataList[i][0].equals(name))
+            if(dataList[i][0].equals(name)){
                 idx = i;
                 break;
+            }
         }
         if (idx == 999)
             return;
