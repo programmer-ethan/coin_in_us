@@ -31,7 +31,7 @@
 
 
             <TextView
-                android:id="@+id/searched_name_one"
+                android:id="@+id/one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stock_info_table_inside_bottom"
@@ -42,14 +42,78 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/searchedCode"
+                android:id="@+id/korSecnNm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stock_info_table_inside_bottom"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="종목 코드"
+                android:text="한글 종목명"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp">
+
+
+            <TextView
+                android:id="@+id/two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stock_info_table_inside_bottom"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="검색한 종목"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/engSecnNm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stock_info_table_inside_bottom"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="영문 종목명"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp">
+
+
+            <TextView
+                android:id="@+id/three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stock_info_table_inside_bottom"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="검색한 종목"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/secnKacdNm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stock_info_table_inside_bottom"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="주식종류"
                 android:textSize="30sp" />
 
         </TableRow>
@@ -61,7 +125,7 @@
 
 
             <TextView
-                android:id="@+id/searched_name_two"
+                android:id="@+id/four"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stock_info_table_inside_bottom"
@@ -72,14 +136,14 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/currentValue"
+                android:id="@+id/issucoCustno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stock_info_table_inside_bottom"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="현재가"
+                android:text="발행회사번호"
                 android:textSize="30sp" />
 
         </TableRow>
@@ -91,7 +155,7 @@
 
 
             <TextView
-                android:id="@+id/searched_name_three"
+                android:id="@+id/five"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stock_info_table_inside_bottom"
@@ -102,14 +166,14 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/endValue"
+                android:id="@+id/isin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stock_info_table_inside_bottom"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="종가"
+                android:text="종목번호"
                 android:textSize="30sp" />
 
         </TableRow>
@@ -121,7 +185,7 @@
 
 
             <TextView
-                android:id="@+id/searched_name_four"
+                android:id="@+id/six"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stock_info_table_inside_bottom"
@@ -132,14 +196,14 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/highPrice"
+                android:id="@+id/issuDt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stock_info_table_inside_bottom"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="고가"
+                android:text="발행일"
                 android:textSize="30sp" />
 
         </TableRow>
@@ -151,7 +215,7 @@
 
 
             <TextView
-                android:id="@+id/searched_name_five"
+                android:id="@+id/seven"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stock_info_table_inside_bottom"
@@ -162,56 +226,19 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/exchangeVolume"
+                android:id="@+id/shotnIsin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stock_info_table_inside_bottom"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="거래량"
+                android:text="단축코드"
                 android:textSize="30sp" />
 
         </TableRow>
 
     </TableLayout>
 
-
-    <TableLayout
-        android:id="@+id/tableLayout_top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="580dp"
-        android:background="@drawable/stock_info_table_outside_top"
-        android:stretchColumns="*"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <TextView
-                android:id="@+id/searched_name_top"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="검색한 종목"
-                android:textSize="40sp" />
-
-
-        </TableRow>
-
-    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -107,7 +107,6 @@ public class StockSearchFragment extends Fragment {
                                 stock(tmp.getText().toString());
                             }
                         });
-
                         tableLayout.addView(tableRow);
                     }
                 } catch (IOException e) {
