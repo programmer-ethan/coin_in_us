@@ -9,4 +9,17 @@
     <string name="table_no">No.</string>
     <string name="table_name">Name</string>
     <string name="table_value">Value</string>
+    <string name="baseUrl">https://api.bithumb.com/public/ticker/BTC_KRW</string>
+    <string name="string">★</string>
+    <string name="name">한글명/심볼</string>
+    <string name="openingprice">현재가</string>
+    <string name="fluctaterate24h">전일대비</string>
+    <string name="percent">percent</string>
+    <string name="favorite">☆</string>
+    <string name="coinname">coin_nm</string>
+    <string name="price">price</string>
+    <string name="string_price">price</string>
+    <string name="string_string_price">opening_price</string>
+    <string name="string_percent">fluctate_rate_24h</string>
+    <string name="전일대비">전일대비</string>
 </resources>

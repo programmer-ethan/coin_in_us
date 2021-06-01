@@ -13,24 +13,61 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.professionalandroid.apps.coin_in_us.model.CoinModel;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Gson mGson;
+
+    List<CoinModel> items = new ArrayList<>();
+
+    Request request;
+
+    private final ThreadLocal<Callback<String>> mRetrofitCallback = new Callback<String>() {
+        @Override
+        public void onResponse(Call<String> call, Response<String> response) {
+            String result = response.body();
+            CoinListVO mCoinListVO = (CoinListVO) mGson.fromJson(result, CoinList.class);
+        }
+
+        @Override
+        public void onFailure(Call<String> call, Throwable t) {
+
+            t.printStackTrace();
+        }
+    };
 
     private TextView opening_price;
     private TextView fluctate_rate_24H;
     private TextView coinNm;
+    private Retrofit mRetrofit;
+    private Call<String> mCallCoinList;
+    private RetrofitAPI mRetrofitAPI;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        opening_price        = findViewById(R.id.opening_price);
-        fluctate_rate_24H    = findViewById(R.id.fluctate_rate_24H);
-        coinNm               = findViewById(R.id.coin_nm);
+        opening_price = findViewById(R.id.opening_price);
+        fluctate_rate_24H = findViewById(R.id.fluctate_rate_24H);
+        coinNm = findViewById(R.id.coin_nm);
+
+        setRetrofitInit();
+        mCallCoinList();
 
         SearchView searchView = findViewById(R.id.search_View);
         searchView.setOnClickListener(new View.OnClickListener() {
@@ -53,11 +90,42 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+
+    private void setRetrofitInit() {
+        mRetrofit = new Retrofit.Builder()
+                .baseUrl("http://api.bithumb.com/public/ticker/ALL_KRW/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitAPI mRetrofitAPI = mRetrofit.create(RetrofitAPI.class);
+    }
+
+    private void mCallCoinList() {
+        mCallCoinList = mRetrofitAPI.getCoinList();
+    }
+
+    private Callback<String> RetrofitCallback = new Callback<String>() {
+        @Override
+        public void onResponse(Call<String> call, Response<String> response) {
+            String result = response.body();
+            Log.d(String.valueOf(this), result);
+        }
+
+        @Override
+        public void onFailure(Call<String> call, Throwable t) {
+            t.printStackTrace();
+        }
+    };
+    public interface RetrofitAPI {
+        @GET("/coin.json")
+        Call<String> getCoinList();
+    }
+
     private void orderbookSelect(String coinNm)
     {
         final String coinName = coinNm;
 
-        String url = "https://api.bithumb.com/public/ticker/{ALL}_{KRW}" + coinNm;
+        String url = "https://api.bithumb.com/public/ticker/BTC_KRW" + coinNm;
     }
 
     private void orderBookResponse(String response) {
@@ -67,10 +135,10 @@ public class MainActivity extends AppCompatActivity {
         if(coinInfo.status.equals("0000"))
         {
             String openingPrice    = coinInfo.data.get("opening_price");
-            String fluctateRate24h = coinInfo.data.get("fluctate_rate_24H");
+            String fluctateRate24H = coinInfo.data.get("fluctate_rate_24H");
 
             opening_price.setText(toDoubleFormat(Double.parseDouble(openingPrice))+"원");
-            fluctate_rate_24H.setText(toDoubleFormat(Double.parseDouble(fluctateRate24h))+"%");
+            fluctate_rate_24H.setText(toDoubleFormat(Double.parseDouble(fluctateRate24H))+"%");
         }
     }
 
@@ -96,12 +164,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     private class Gson {
-        public CoinList fromJson(String response, Class<CoinList> coinListClass) {
+        public CoinListVO fromJson(String response, Class<CoinListVO> coinListClass) {
 
             return null;
         }
     }
+
+    private class Request {
+    }
 }
+
  class CoinList {
     HashMap<String , String> data = new HashMap<String, String>();
     String status;
