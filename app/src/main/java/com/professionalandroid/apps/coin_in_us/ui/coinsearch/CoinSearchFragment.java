@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -47,11 +45,12 @@ public class CoinSearchFragment extends Fragment {
 
         SearchView coinSearch = (SearchView) root.findViewById(R.id.coinSearch);
         TableLayout table = (TableLayout) root.findViewById(R.id.cointable);
+
         coinSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(context, "검색 처리됨 : " + query, Toast.LENGTH_SHORT).show();
-                activity.coinrow(query);
+                activity.coin_search_load(query);
                 return false;
             }
 

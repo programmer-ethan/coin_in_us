@@ -2,7 +2,10 @@ package com.professionalandroid.apps.coin_in_us;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.os.Handler;
@@ -10,9 +13,11 @@ import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.professionalandroid.apps.coin_in_us.ui.coininfo.Coin_Info_Fragment;
+import com.professionalandroid.apps.coin_in_us.ui.coinsearch.Loading;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -40,169 +45,7 @@ public class MainActivity extends AppCompatActivity {
     String current_price;
     double rate;
     Fragment fragment = new Coin_Info_Fragment();
-    String[] kor_coin_arr = {"이더리움",
-            "리플",
-            "비트코인",
-            "이더리움 클래식",
-            "에이다",
-            "이오스",
-            "링크플로우",
-            "연파이낸스",
-            "비트코인 캐시",
-            "도지코인",
-            "루나",
-            "앵커뉴럴월드",
-            "퀀텀",
-            "비트토렌트",
-            "폴카닷",
-            "비체인",
-            "라이트코인",
-            "어셈블프로토콜",
-            "스텔라루멘",
-            "체인링크",
-            "마일벌스",
-            "트론",
-            "온톨로지가스",
-            "디브이피",
-            "오미세고",
-            "메이커",
-            "클레이튼",
-            "비트코인에스브이",
-            "아이젝",
-            "비트코인 다이아몬드",
-            "제노토큰",
-            "스와이프",
-            "펀디엑스",
-            "오르빗 체인",
-            "디센트럴랜드",
-            "엔진코인",
-            "넴",
-            "비트코인 골드",
-            "버거스왑",
-            "피르마체인",
-            "콜라토큰",
-            "하이브",
-            "쎄타토큰",
-            "아로와나토큰",
-            "테조스",
-            "유니스왑",
-            "어거",
-            "스팀",
-            "온톨로지",
-            "웨이브",
-            "스시스왑",
-            "쎄타퓨엘",
-            "알파쿼크",
-            "원루트 네트워크",
-            "샌드박스",
-            "밀크",
-            "라이브피어",
-            "코스모스",
-            "세럼",
-            "템코",
-            "디비전",
-            "더그래프",
-            "아모코인",
-            "보라",
-            "컴파운드",
-            "오로라",
-            "퀴즈톡",
-            "메탈",
-            "너보스",
-            "스테이터스네트워크토큰",
-            "베이직어텐션토큰",
-            "썸씽",
-            "우마",
-            "제로엑스",
-            "이오스트",
-            "신세틱스",
-            "앵커",
-            "지엑스체인",
-            "보아",
-            "오브스",
-            "크립토닷컴체인",
-            "사이버베인",
-            "무비블록",
-            "애니버스",
-            "메타디움",
-            "에이브",
-            "카이버 네트워크",
-            "드래곤베인",
-            "더마이다스터치골드",
-            "쿼크체인",
-            "마이네이버앨리스",
-            "폴라리스 쉐어",
-            "미러 프로토콜",
-            "람다",
-            "누사이퍼",
-            "왁스",
-            "알고랜드",
-            "엘리시아",
-            "바이오패스포트",
-            "다빈치",
-            "엠씨아이",
-            "칠리즈",
-            "아르고",
-            "옵저버",
-            "비트코인 캐시 에이비씨",
-            "이브이지",
-            "펑션엑스",
-            "플레타",
-            "리니어파이낸스",
-            "질리카",
-            "트루체인",
-            "아이콘",
-            "오키드",
-            "스트라티스",
-            "위믹스",
-            "웨이키체인",
-            "크로미아",
-            "에이치닥",
-            "300피트 네트워크",
-            "룸네트워크",
-            "맵프로토콜",
-            "썬",
-            "코르텍스",
-            "파워렛저",
-            "프로톤",
-            "엘프",
-            "저스트",
-            "월튼체인",
-            "이마이너",
-            "벨라프로토콜",
-            "루프링",
-            "오션프로토콜",
-            "베이직",
-            "아이온",
-            "콘텐토스",
-            "어댑터 토큰",
-            "퀸비",
-            "네스트리",
-            "라이파이낸스",
-            "골렘",
-            "애터니티",
-            "믹스마블",
-            "코넌",
-            "이포스",
-            "알파체인",
-            "애프앤비프로토콜",
-            "랠리",
-            "링엑스",
-            "소다코인",
-            "밀리미터토큰",
-            "브이시스템즈",
-            "고머니2",
-            "아픽스",
-            "머신익스체인지코인",
-            "왐토큰",
-            "트러스트버스",
-            "프레시움",
-            "에이아이워크",
-            "타키온프로토콜",
-            "다드",
-            "센트럴리티",
-            "에이피엠 코인",
-            "밸러토큰"};
+    Fragment loadscreen = new Loading();
     //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -233,9 +76,8 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
     }
     //
-    public void coinrow(String coin){
+    public void coin_search_load(String coin){
         //
-
         String[] forprint = new String[163];
         int count = 0;
         int k = 0;
@@ -246,7 +88,19 @@ public class MainActivity extends AppCompatActivity {
                 k++;
             }
         }
-        TableLayout tableLayout = (TableLayout) findViewById(R.id.cointableLayout);
+        if(count > 0) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.coin_info_container, loadscreen).commit();
+        }
+        TableLayout tableLayout = (TableLayout)findViewById(R.id.cointableLayout);
+
+        int row = tableLayout.getChildCount();
+        TextView tt = (TextView)findViewById(R.id.textview_coin);
+
+        if(row>1) {
+            for(int i = 0 ; i < row-1 ; i++) {
+                tableLayout.removeViewAt(1);
+            }
+        }
         for(int j = 0 ; j < count ; j++) {
             TableRow tableRow = new TableRow(this);
             tableRow.setLayoutParams(new TableRow.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -254,19 +108,67 @@ public class MainActivity extends AppCompatActivity {
                 TextView textView = new TextView(this);
                 if(i == 0){
                     textView.setText("★");
+                    textView.setGravity(Gravity.CENTER);
+                    textView.setTextSize(20);
                 }
                 else if(i == 1) {
                     textView.setText(forprint[j]);
                 }
                 else if(i == 2){
-                    textView.setText("현재가");
-                    textView.setGravity(Gravity.RIGHT);
+                    int finalJ = j;
+                    handler.postDelayed(new Runnable()  {
+                        public void run() {
+                            urlStr = "https://api.bithumb.com/public/transaction_history/"+kortosymbol(forprint[finalJ])+"_KRW";
+                            RequestThread order_thread = new RequestThread();
+                            order_thread.start();
+                        }
+                    }, 700 * j);
+                    handler.postDelayed(new Runnable()  {
+                        public void run() {
+                            textView.setText(String.valueOf(current_price));
+                            textView.setGravity(Gravity.CENTER);
+                        }
+                    }, 700 * j + 700);
                 }
                 else if(i == 3){
-                    textView.setText("몇%");
-                    textView.setGravity(Gravity.RIGHT);
+                    int finalJ = j;
+                    handler.postDelayed(new Runnable()  {
+                        public void run() {
+                            urlStr = "https://api.bithumb.com/public/ticker/"+kortosymbol(forprint[finalJ])+"_KRW";
+                            RequestThread ticker_thread = new RequestThread();
+                            ticker_thread.start();
+                        }
+                    }, 700 * j + 300);
+                    int finalCount = count;
+                    handler.postDelayed(new Runnable()  {
+                        public void run() {
+                            textView.setText(String.valueOf(rate));
+                            textView.setGravity(Gravity.CENTER);
+                            if(rate<0) {
+                                textView.setTextColor(Color.rgb(50, 50, 255));
+                            }
+                            else{
+                                textView.setTextColor(Color.rgb(255, 50, 50));
+                            }
+                            if(finalJ== finalCount -1){
+                                getSupportFragmentManager().beginTransaction().remove(loadscreen).commit();
+                            }
+                        }
+                    }, 700 * j + 700);
                 }
+                if(j % 2 == 0) {
+                    tableRow.setBackgroundColor(Color.rgb(200, 200, 200));
+                }
+                tableRow.setId(j);
+                final String coin_load = forprint[j];
+                tableRow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        coinfo(kortosymbol(coin_load));
+                    }
+                });
                 tableRow.addView(textView);
+                tableRow.setPadding(0,0,0,10);
             }
             tableLayout.addView(tableRow);
         }
@@ -276,14 +178,14 @@ public class MainActivity extends AppCompatActivity {
         //
         String kor_name = symboltokor(name);
         urlStr = "https://api.bithumb.com/public/ticker/"+name+"_KRW";
-        RequestThread order_thread = new RequestThread();
-        order_thread.start();
+        RequestThread ticker_thread = new RequestThread();
+        ticker_thread.start();
         //
         handler.postDelayed(new Runnable()  {
             public void run() {
                 urlStr = "https://api.bithumb.com/public/transaction_history/"+name+"_KRW";
-                RequestThread ticker_thread = new RequestThread();
-                ticker_thread.start();
+                RequestThread order_thread = new RequestThread();
+                order_thread.start();
             }
         }, 300);
         //
@@ -371,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     //
-    public String symboltokor (String symbol){
+    String symboltokor (String symbol){
         String kor = null;
         if(symbol.equals("ETH")) kor = "이더리움";
         else if(symbol.equals("XRP")) kor = "리플";
@@ -538,7 +440,7 @@ public class MainActivity extends AppCompatActivity {
         else if(symbol.equals("VALOR")) kor = "밸러토큰";
         return kor;
     }
-    public String kortosymbol (String kor){
+    String kortosymbol (String kor){
         String symbol = null;
         if(kor.equals("이더리움")) symbol = "ETH";
         else if(kor.equals("리플")) symbol = "XRP";
@@ -705,4 +607,167 @@ public class MainActivity extends AppCompatActivity {
         else if(kor.equals("밸러토큰")) symbol = "VALOR";
         return symbol;
     }
+    String[] kor_coin_arr = {"이더리움",
+            "리플",
+            "비트코인",
+            "이더리움 클래식",
+            "에이다",
+            "이오스",
+            "링크플로우",
+            "연파이낸스",
+            "비트코인 캐시",
+            "도지코인",
+            "루나",
+            "앵커뉴럴월드",
+            "퀀텀",
+            "비트토렌트",
+            "폴카닷",
+            "비체인",
+            "라이트코인",
+            "어셈블프로토콜",
+            "스텔라루멘",
+            "체인링크",
+            "마일벌스",
+            "트론",
+            "온톨로지가스",
+            "디브이피",
+            "오미세고",
+            "메이커",
+            "클레이튼",
+            "비트코인에스브이",
+            "아이젝",
+            "비트코인 다이아몬드",
+            "제노토큰",
+            "스와이프",
+            "펀디엑스",
+            "오르빗 체인",
+            "디센트럴랜드",
+            "엔진코인",
+            "넴",
+            "비트코인 골드",
+            "버거스왑",
+            "피르마체인",
+            "콜라토큰",
+            "하이브",
+            "쎄타토큰",
+            "아로와나토큰",
+            "테조스",
+            "유니스왑",
+            "어거",
+            "스팀",
+            "온톨로지",
+            "웨이브",
+            "스시스왑",
+            "쎄타퓨엘",
+            "알파쿼크",
+            "원루트 네트워크",
+            "샌드박스",
+            "밀크",
+            "라이브피어",
+            "코스모스",
+            "세럼",
+            "템코",
+            "디비전",
+            "더그래프",
+            "아모코인",
+            "보라",
+            "컴파운드",
+            "오로라",
+            "퀴즈톡",
+            "메탈",
+            "너보스",
+            "스테이터스네트워크토큰",
+            "베이직어텐션토큰",
+            "썸씽",
+            "우마",
+            "제로엑스",
+            "이오스트",
+            "신세틱스",
+            "앵커",
+            "지엑스체인",
+            "보아",
+            "오브스",
+            "크립토닷컴체인",
+            "사이버베인",
+            "무비블록",
+            "애니버스",
+            "메타디움",
+            "에이브",
+            "카이버 네트워크",
+            "드래곤베인",
+            "더마이다스터치골드",
+            "쿼크체인",
+            "마이네이버앨리스",
+            "폴라리스 쉐어",
+            "미러 프로토콜",
+            "람다",
+            "누사이퍼",
+            "왁스",
+            "알고랜드",
+            "엘리시아",
+            "바이오패스포트",
+            "다빈치",
+            "엠씨아이",
+            "칠리즈",
+            "아르고",
+            "옵저버",
+            "비트코인 캐시 에이비씨",
+            "이브이지",
+            "펑션엑스",
+            "플레타",
+            "리니어파이낸스",
+            "질리카",
+            "트루체인",
+            "아이콘",
+            "오키드",
+            "스트라티스",
+            "위믹스",
+            "웨이키체인",
+            "크로미아",
+            "에이치닥",
+            "300피트 네트워크",
+            "룸네트워크",
+            "맵프로토콜",
+            "썬",
+            "코르텍스",
+            "파워렛저",
+            "프로톤",
+            "엘프",
+            "저스트",
+            "월튼체인",
+            "이마이너",
+            "벨라프로토콜",
+            "루프링",
+            "오션프로토콜",
+            "베이직",
+            "아이온",
+            "콘텐토스",
+            "어댑터 토큰",
+            "퀸비",
+            "네스트리",
+            "라이파이낸스",
+            "골렘",
+            "애터니티",
+            "믹스마블",
+            "코넌",
+            "이포스",
+            "알파체인",
+            "애프앤비프로토콜",
+            "랠리",
+            "링엑스",
+            "소다코인",
+            "밀리미터토큰",
+            "브이시스템즈",
+            "고머니2",
+            "아픽스",
+            "머신익스체인지코인",
+            "왐토큰",
+            "트러스트버스",
+            "프레시움",
+            "에이아이워크",
+            "타키온프로토콜",
+            "다드",
+            "센트럴리티",
+            "에이피엠 코인",
+            "밸러토큰"};
 }
