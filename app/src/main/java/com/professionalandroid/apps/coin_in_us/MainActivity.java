@@ -2,6 +2,7 @@ package com.professionalandroid.apps.coin_in_us;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.os.Handler;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+
     }
     public void writeSharedPreference(View view){
 //        EditText txtValue = (EditText) findViewById(R.id.saved_data);
