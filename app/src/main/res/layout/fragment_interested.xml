@@ -60,6 +60,7 @@
         app:layout_constraintBottom_toTopOf="@id/stocktable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
         tools:ignore="MissingConstraints" />
     <TextView
         android:id="@+id/shared_data"
