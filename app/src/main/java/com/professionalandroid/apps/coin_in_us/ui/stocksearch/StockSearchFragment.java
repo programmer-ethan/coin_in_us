@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.professionalandroid.apps.coin_in_us.MainActivity;
 import com.professionalandroid.apps.coin_in_us.R;
 
 
@@ -71,6 +70,15 @@ public class StockSearchFragment extends Fragment {
                                 ViewGroup.LayoutParams.WRAP_CONTENT));
 
                         Button star = new Button(getContext());
+                        star.setBackgroundResource(R.drawable.star_button);
+                        star.setMaxWidth((int)(20*pixels));
+                        star.setMaxHeight((int)(20*pixels));
+                        star.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //노석한님(관심종목) onClick 구현
+                            }
+                        });
                         tableRow.addView(star);
 
                         for(int i = 0 ; i < 2 ; i++) {
@@ -90,12 +98,14 @@ public class StockSearchFragment extends Fragment {
                         textView.setHeight((int)(55*pixels));
                         textView.setWidth((int)(91*pixels));
                         tableRow.addView(textView);
-                        /*
+
                         tableRow.setOnClickListener(new View.OnClickListener() {
                             @Override
-                            public void onClick(View v) {}
+                            public void onClick(View v) {
+                                // 백성현님 onclick 구현
+                            }
                         });
-                         */
+
                         tableLayout.addView(tableRow);
                     }
                 } catch (IOException e) {
