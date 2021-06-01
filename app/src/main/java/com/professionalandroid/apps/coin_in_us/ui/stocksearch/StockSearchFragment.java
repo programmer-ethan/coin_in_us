@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.professionalandroid.apps.coin_in_us.R;
+import com.professionalandroid.apps.coin_in_us.ui.stockinfo.StockInfo;
 
 
 import java.io.IOException;
@@ -102,7 +103,8 @@ public class StockSearchFragment extends Fragment {
                         tableRow.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                // 백성현님 onclick 구현
+                                TextView tmp = (TextView) tableRow.getChildAt(1);
+                                stock(tmp.getText().toString());
                             }
                         });
 
@@ -131,12 +133,20 @@ public class StockSearchFragment extends Fragment {
     public String[][] getParsingData() {
         return parsingData;
     }
+    public void stock(String name) {
+        int idx = 999;
+        Intent intent = new Intent(getActivity().getApplicationContext(), StockInfo.class);
+        String[][] dataList = getParsingData();
 
-    /*
-    public void stock() {
-        Intent intent = new Intent(getActivity(), StockInfo.class);
+        for (int i = 0; i < dataList.length ; i++) {
+            if(dataList[i][0].equals(name))
+                idx = i;
+                break;
+        }
+        if (idx == 999)
+            return;
+        intent.putExtra("data", dataList[idx]);
         startActivity(intent);
     }
-     */
 
 }
