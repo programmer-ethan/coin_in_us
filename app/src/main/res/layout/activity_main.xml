@@ -31,13 +31,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.333"
-        app:navGraph="@navigation/mobile_navigation" />
-
-    <!--    coin search branch.....-->
-=======
-        app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/mobile_navigation" />
 
     <fragment
@@ -45,19 +39,5 @@
         android:id="@+id/coin_info_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
-
-<!--    coin search branch.....-->
->>>>>>> origin/201602954
-<!--    <SearchView-->
-<!--        android:id="@+id/search_view"-->
-<!--        android:layout_width="350dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="27dp"-->
-<!--        android:layout_marginLeft="27dp"-->
-<!--        android:background="@drawable/custom_background"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

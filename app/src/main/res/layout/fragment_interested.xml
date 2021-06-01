@@ -83,14 +83,9 @@
         android:id="@+id/stocktable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_marginTop="20dp"
         android:layout_marginBottom="300dp"
         android:background="@drawable/table_outside"
-=======
-        android:layout_marginTop="160dp"
-        android:layout_marginBottom="500dp"
->>>>>>> origin/201602954
         android:stretchColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -194,14 +189,9 @@
         android:id="@+id/cointable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_marginTop="20dp"
         android:layout_marginBottom="200dp"
         android:background="@drawable/table_outside"
-=======
-        android:layout_marginTop="310dp"
-        android:layout_marginBottom="250dp"
->>>>>>> origin/201602954
         android:stretchColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

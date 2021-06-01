@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment{
         String name1 = pref.getString("COIN_NAME_1", "NOTFOUND");
         String value1 = pref.getString("COIN_VALUE_1", "NOTFOUND");
         String name2 = pref.getString("STOCK_NAME_1", "NOTFOUND");
-        String value2 = pref.getString("STOCK_VALUE_1", "NOTFOUND");
+        String value2 = pref.getString("STOCK_VALUE_1", "NOTFOUND");/*
         TextView txtValue = root.findViewById(R.id.coin_name_1);
         txtValue.setText(name1);
         TextView txtValue2 = root.findViewById(R.id.coin_value_1);
@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment{
         TextView txtValue3 = root.findViewById(R.id.stock_name_1);
         txtValue3.setText(name2);
         TextView txtValue4 = root.findViewById(R.id.stock_value_1);
-        txtValue4.setText(value2);
+        txtValue4.setText(value2);*/
 
 
 
