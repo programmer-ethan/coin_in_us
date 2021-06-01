@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
         TableLayout tableLayout = (TableLayout)findViewById(R.id.cointableLayout);
 
         int row = tableLayout.getChildCount();
-        TextView tt = (TextView)findViewById(R.id.textview_coin);
 
         if(row>1) {
             for(int i = 0 ; i < row-1 ; i++) {
