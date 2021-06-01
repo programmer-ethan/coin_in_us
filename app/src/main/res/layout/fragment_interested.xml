@@ -39,7 +39,7 @@
         android:text="@string/interested_coin"
         android:textColor="#646eff"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@id/stocktable"
+        app:layout_constraintBottom_toTopOf="@id/cointable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
@@ -57,7 +57,7 @@
         android:text="@string/interested_stock"
         android:textColor="#6462ff"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@id/cointable"
+        app:layout_constraintBottom_toTopOf="@id/stocktable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
@@ -126,63 +126,65 @@
                 android:textSize="18sp" />
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="1"
-                android:textSize="18sp" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
+<!--                android:text="1"-->
+<!--                android:textSize="18sp" />-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="Kakao"
-                android:textSize="18sp" />
+<!--            <TextView-->
+<!--                android:id="@+id/coin_name_1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="118,000"
-                android:textSize="18sp" />
-        </TableRow>
+<!--                android:textSize="18sp" />-->
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--            <TextView-->
+<!--                android:id="@+id/coin_value_1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="2"
-                android:textSize="18sp" />
+<!--                android:textSize="18sp" />-->
+<!--        </TableRow>-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="Naver"
-                android:textSize="18sp" />
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="377500"
-                android:textSize="18sp" />
-        </TableRow>
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
+<!--                android:text="2"-->
+<!--                android:textSize="18sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Naver"-->
+<!--                android:textSize="18sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
+<!--                android:text="377500"-->
+<!--                android:textSize="18sp" />-->
+<!--        </TableRow>-->
 
     </TableLayout>
 
@@ -232,64 +234,74 @@
                 android:textSize="18sp" />
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="1"
-                android:textSize="18sp" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
+<!--                android:text="1"-->
+<!--                android:textSize="18sp" />-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="Bitcoin"
-                android:textSize="18sp" />
+<!--            <TextView-->
+<!--                android:id="@+id/stock_name_1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="59,440,000"
-                android:textSize="18sp" />
-        </TableRow>
+<!--                android:textSize="18sp" />-->
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--            <TextView-->
+<!--                android:id="@+id/stock_value_1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="2"
-                android:textSize="18sp" />
+<!--                android:textSize="18sp" />-->
+<!--        </TableRow>-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="Ethereum"
-                android:textSize="18sp" />
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_inside"
-                android:gravity="center"
-                android:text="2,711,000"
-                android:textSize="18sp" />
-        </TableRow>
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
+<!--                android:text="2"-->
+<!--                android:textSize="18sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Ethereum"-->
+<!--                android:textSize="18sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/table_inside"-->
+<!--                android:gravity="center"-->
+<!--                android:text="2,711,000"-->
+<!--                android:textSize="18sp" />-->
+<!--        </TableRow>-->
 
     </TableLayout>
-
+    <fragment
+        android:id="@+id/coin_info_container_table"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+<!--    <fragment-->
+<!--        android:name="com.professionalandroid.apps.coin_in_us.ui.coininfo.BlankFragment"-->
+<!--        android:id="@+id/coin_info_container"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
