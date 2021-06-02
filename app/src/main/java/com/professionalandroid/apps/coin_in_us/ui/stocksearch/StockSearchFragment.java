@@ -1,6 +1,8 @@
 package com.professionalandroid.apps.coin_in_us.ui.stocksearch;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -27,7 +29,6 @@ import java.net.URLEncoder;
 import java.util.concurrent.ExecutionException;
 
 public class StockSearchFragment extends Fragment {
-
     private StockSearchViewModel stocksearchViewModel;
     private LinearLayout tableLayout;
     private SearchView search;
@@ -74,12 +75,30 @@ public class StockSearchFragment extends Fragment {
                         star.setBackgroundResource(R.drawable.star_button);
                         star.setMaxWidth((int)(20*pixels));
                         star.setMaxHeight((int)(20*pixels));
+                        //추가- 노석한
+                        int finalJ = j;
                         star.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 //노석한님(관심종목) onClick 구현
+                                Context context = getActivity();
+                                SharedPreferences sharedPreference
+                                        = context.getSharedPreferences("MYPREFRENCE", Context.MODE_MULTI_PROCESS | Context.MODE_PRIVATE);
+                                // 2. get Editor
+                                SharedPreferences.Editor editor = sharedPreference.edit();
+                                // 3. set Key values
+                                editor.putString("STOCK_NAME_1",parsingData[finalJ][0]);
+                                editor.putString("STOCK_EN_NAME_1", parsingData[finalJ][1]);
+                                editor.putString("STOCK_KIND_1",parsingData[finalJ][2]);
+
+                                star.setBackgroundResource(R.drawable.star);
+                                star.setMaxWidth((int)(10*pixels));
+                                star.setMaxHeight((int)(10*pixels));
+                                // 4. commit the values
+                                editor.commit();
                             }
                         });
+
                         tableRow.addView(star);
 
                         for(int i = 0 ; i < 2 ; i++) {
