@@ -75,7 +75,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/stock_info_table_inside_bottom"
                     android:gravity="center"
-                    android:text="주식종류"
+                    android:text="종류"
                     android:textSize="20dp" />
 
             </TableRow>
