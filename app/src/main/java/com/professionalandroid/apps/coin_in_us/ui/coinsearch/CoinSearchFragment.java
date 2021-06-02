@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.SearchView;
+import android.widget.TableLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,7 +17,6 @@ import com.professionalandroid.apps.coin_in_us.MainActivity;
 import com.professionalandroid.apps.coin_in_us.R;
 
 public class CoinSearchFragment extends Fragment {
-    //
     MainActivity activity;
     @Override
     public void onAttach(Context context) {
@@ -31,58 +30,33 @@ public class CoinSearchFragment extends Fragment {
 
         activity = null;
     }
-    //
     private CoinSearchViewModel coinSearchViewModel;
-
+    //
+    private Context context;
+    //
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        context = container.getContext();
+
         coinSearchViewModel =
                 new ViewModelProvider(this).get(CoinSearchViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        final TextView textView2 = root.findViewById(R.id.text_dashboard2);
-        final TextView textView3 = root.findViewById(R.id.text_dashboard3);
-        /*
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-=======
-public class CoinSearchFragment extends Fragment {
-
-    private CoinSearchViewModel coinsearchViewModel;
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        coinsearchViewModel =
-                new ViewModelProvider(this).get(CoinSearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_coin_search, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        coinsearchViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
->>>>>>> origin/master:app/src/main/java/com/professionalandroid/apps/coin_in_us/ui/coinsearch/CoinSearchFragment.java
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-         */
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.coinfo((String)textView.getText());
 
-            }
-        });
-        textView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.coinfo((String)textView2.getText());
+        SearchView coinSearch = (SearchView) root.findViewById(R.id.coinSearch);
+        TableLayout table = (TableLayout) root.findViewById(R.id.cointable);
 
-            }
-        });
-        textView3.setOnClickListener(new View.OnClickListener() {
+        coinSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View v) {
-                activity.coinfo((String)textView3.getText());
+            public boolean onQueryTextSubmit(String query) {
+                Toast.makeText(context, "검색 처리됨 : " + query, Toast.LENGTH_SHORT).show();
+                activity.coin_search_load(query);
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
             }
         });
         return root;
