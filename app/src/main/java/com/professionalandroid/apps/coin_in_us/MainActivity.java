@@ -2,14 +2,8 @@ package com.professionalandroid.apps.coin_in_us;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-<<<<<<< HEAD
-import android.content.Intent;
-=======
 import android.graphics.Color;
-import android.graphics.ColorSpace;
->>>>>>> New_Coinsearch_temp
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.os.Handler;
@@ -17,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.professionalandroid.apps.coin_in_us.ui.coininfo.Coin_Info_Fragment;
