@@ -31,12 +31,13 @@
         android:id="@+id/coin_table_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginEnd="250dp"
+        android:layout_marginEnd="280dp"
         android:layout_marginRight="265dp"
         android:layout_marginBottom="10dp"
         android:text="@string/interested_coin"
+        android:gravity="left"
         android:textColor="#646eff"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@id/cointable"
@@ -49,12 +50,13 @@
         android:id="@+id/stock_table_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginEnd="250dp"
+        android:layout_marginEnd="280dp"
         android:layout_marginRight="265dp"
         android:layout_marginBottom="10dp"
         android:text="@string/interested_stock"
+        android:gravity="left"
         android:textColor="#6462ff"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@id/stocktable"
@@ -102,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="국문명"
+                android:text="@string/stock_table_name_kor"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -111,7 +113,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="영문명"
+                android:text="@string/stock_table_name_eng"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -120,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="종류"
+                android:text="@string/stock_table_kind"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
         </TableRow>
@@ -208,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="종목명"
+                android:text="@string/coin_table_name"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -217,7 +219,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="현재가"
+                android:text="@string/coin_table_price"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -226,7 +228,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="전일대비"
+                android:text="@string/coin_table_rate"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
         </TableRow>
