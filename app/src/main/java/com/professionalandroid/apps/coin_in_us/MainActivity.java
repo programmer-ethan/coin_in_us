@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                                 // 3. set Key values
                                 editor.putString("COIN_NAME_1",forprint[finalJ1]);
                                 editor.putString("COIN_PRICE_1", String.valueOf(current_price));
-                                editor.putString("COIN_RATE_1",String.valueOf(rate));
+                                editor.putString("COIN_RATE_1",String.valueOf(rate) + "%");
                                 editor.commit();
                             }
                             else {
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                     int finalCount = count;
                     handler.postDelayed(new Runnable()  {
                         public void run() {
-                            textView.setText(String.valueOf(rate));
+                            textView.setText(String.valueOf(rate) + "%");
                             textView.setGravity(Gravity.CENTER);
                             if(rate<0) {
                                 textView.setTextColor(Color.rgb(50, 50, 255));
