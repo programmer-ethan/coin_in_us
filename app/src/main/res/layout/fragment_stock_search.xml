@@ -46,7 +46,7 @@
                     android:id="@+id/textView"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/stock_info_table_inside_bottom"
+                    android:background="@drawable/stock_info_table_inside_left"
                     android:gravity="center"
                     android:text="☆"
                     android:textSize="20dp" />
@@ -55,7 +55,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="140dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/stock_info_table_inside_bottom"
+                    android:background="@drawable/stock_info_table_inside_left"
                     android:gravity="center"
                     android:text="국문명"
                     android:textSize="20dp" />
@@ -64,7 +64,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="140dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/stock_info_table_inside_bottom"
+                    android:background="@drawable/stock_info_table_inside_left"
                     android:gravity="center"
                     android:text="영문명"
                     android:textSize="20dp" />
@@ -73,7 +73,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="91dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/stock_info_table_inside_bottom"
+                    android:background="@drawable/stock_info_table_inside_left"
                     android:gravity="center"
                     android:text="종류"
                     android:textSize="20dp" />

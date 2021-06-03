@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.stockinfo.StockInfo">
 
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:paddingTop="0dp"
+        android:id="@+id/stockInfoScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
     <TableLayout
         android:id="@+id/tableLayout_bottom"
@@ -13,232 +21,287 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="140dp"
         android:stretchColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="120dp">
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="30dp">
 
 
             <TextView
                 android:id="@+id/one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:background="@drawable/stock_info_table_inside_left"
                 android:gravity="center"
                 android:text="검색한 종목"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/korSecnNm"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:layout_height="match_parent"
+                android:background="@drawable/stock_info_table_inside_right"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="한글 종목명"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
         </TableRow>
+        </HorizontalScrollView>
 
 
-
+        <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="40dp">
 
 
             <TextView
                 android:id="@+id/two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:background="@drawable/stock_info_table_inside_left"
                 android:gravity="center"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="검색한 종목"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/engSecnNm"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:layout_height="match_parent"
+                android:background="@drawable/stock_info_table_inside_right"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="영문 종목명"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
         </TableRow>
+        </HorizontalScrollView>
 
 
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="40dp">
 
 
             <TextView
                 android:id="@+id/three"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:layout_width="180dp"
+                android:layout_height="50sp"
+                android:background="@drawable/stock_info_table_inside_left"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="검색한 종목"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/secnKacdNm"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:layout_height="match_parent"
+                android:background="@drawable/stock_info_table_inside_right"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="주식종류"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
         </TableRow>
+
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="40dp">
 
 
             <TextView
                 android:id="@+id/four"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:layout_width="180sp"
+                android:layout_height="50sp"
+                android:background="@drawable/stock_info_table_inside_left"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="검색한 종목"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/issucoCustno"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:layout_height="match_parent"
+                android:background="@drawable/stock_info_table_inside_right"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="발행회사번호"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
         </TableRow>
+
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="40dp">
 
 
             <TextView
                 android:id="@+id/five"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:background="@drawable/stock_info_table_inside_left"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="검색한 종목"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/isin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:layout_height="match_parent"
+                android:background="@drawable/stock_info_table_inside_right"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="종목번호"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
         </TableRow>
+
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="40dp">
 
 
             <TextView
                 android:id="@+id/six"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:background="@drawable/stock_info_table_inside_left"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="검색한 종목"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/issuDt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:layout_height="match_parent"
+                android:background="@drawable/stock_info_table_inside_right"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="발행일"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
         </TableRow>
+
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="40dp">
 
 
             <TextView
                 android:id="@+id/seven"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:background="@drawable/stock_info_table_inside_left"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="검색한 종목"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/shotnIsin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stock_info_table_inside_bottom"
+                android:layout_height="match_parent"
+                android:background="@drawable/stock_info_table_inside_right"
                 android:gravity="center"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="단축코드"
-                android:textSize="30sp" />
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
         </TableRow>
 
     </TableLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
