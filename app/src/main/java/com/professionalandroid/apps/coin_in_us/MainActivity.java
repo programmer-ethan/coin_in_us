@@ -2,6 +2,7 @@ package com.professionalandroid.apps.coin_in_us;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.professionalandroid.apps.coin_in_us.ui.coininfo.Coin_Info_Fragment;
@@ -33,6 +35,8 @@ import java.net.URL;
 import java.sql.Date;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     //
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         // 4. commit the values
         editor.commit();
     }
+    List<String> favorite = new ArrayList<String>();
     //
     public void coin_search_load(String coin){
         //
@@ -108,6 +113,29 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText("★");
                     textView.setGravity(Gravity.CENTER);
                     textView.setTextSize(20);
+                    if(favorite.contains(forprint[j])) {
+                        textView.setTextColor(Color.rgb(255, 127, 50));
+                    }
+                    else{
+                        textView.setTextColor(Color.rgb(0, 0, 0));
+                    }
+                    int finalJ1 = j;
+                    tableRow.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            if(textView.getTextColors() == ColorStateList.valueOf(Color.rgb(0,0,0))) {
+                                textView.setTextColor(Color.rgb(255, 127, 50));
+                                favorite.add(forprint[finalJ1]);
+                                //여기에 관심종목 추가 동작 입력
+                            }
+                            else {
+                                textView.setTextColor(Color.rgb(0, 0, 0));
+                                favorite.remove(forprint[finalJ1]);
+                                //여기에 관심종목 해제 동작 입력
+                            }
+                            return true;
+                        }
+                    });
                 }
                 else if(i == 1) {
                     textView.setText(forprint[j]);
@@ -157,8 +185,8 @@ public class MainActivity extends AppCompatActivity {
                 if(j % 2 == 0) {
                     tableRow.setBackgroundColor(Color.rgb(200, 200, 200));
                 }
-                tableRow.setId(j);
                 final String coin_load = forprint[j];
+                final int l = j + 1;
                 tableRow.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
