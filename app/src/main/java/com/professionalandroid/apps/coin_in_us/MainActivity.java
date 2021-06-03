@@ -113,10 +113,14 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText("★");
                     textView.setGravity(Gravity.CENTER);
                     textView.setTextSize(20);
-                    if(favorite.contains(forprint[j])) {
+
+                    SharedPreferences sharedPreference
+                            = getApplicationContext().getSharedPreferences("MYPREFERENCE", Context.MODE_MULTI_PROCESS | Context.MODE_PRIVATE);
+                    String Coin_name1 = sharedPreference.getString("COIN_NAME_1", "");
+
+                    if(Coin_name1.equals(forprint[j])) {
                         textView.setTextColor(Color.rgb(255, 127, 50));
-                    }
-                    else{
+                    } else {
                         textView.setTextColor(Color.rgb(0, 0, 0));
                     }
                     int finalJ1 = j;
@@ -136,8 +140,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putString("COIN_PRICE_1", String.valueOf(current_price));
                                 editor.putString("COIN_RATE_1",String.valueOf(rate) + "%");
                                 editor.commit();
-                            }
-                            else {
+                            } else {
                                 textView.setTextColor(Color.rgb(0, 0, 0));
                                 favorite.remove(forprint[finalJ1]);
                                 //여기에 관심종목 해제 동작 입력
