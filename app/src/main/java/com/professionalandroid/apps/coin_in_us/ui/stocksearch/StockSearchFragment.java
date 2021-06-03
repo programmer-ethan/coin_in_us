@@ -82,7 +82,7 @@ public class StockSearchFragment extends Fragment {
                         // 2. get Editor
                         SharedPreferences.Editor editor = sharedPreference.edit();
                         String stock_name1 = sharedPreference.getString("STOCK_NAME_1", "");
-                        if (stock_name1==parsingData[j][0]) {
+                        if (stock_name1.equals(parsingData[j][0])) {
                           star.setChecked(true);
                         }
 
