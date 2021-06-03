@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">COIN IN US</string>
+    <string name="app_title">COIN IN US</string>
+    <string name="title_coinSearch">코인 검색</string>
+    <string name="title_interested">관심 종목</string>
+    <string name="title_stockSearch">주식 검색</string>
+    <string name="interested_coin">관심 코인</string>
+    <string name="interested_stock">관심 주식</string>
+    <string name="table_no">No.</string>
+    <string name="table_name">Name</string>
+    <string name="table_value">Value</string>
+    <string name="preference_file_key">key</string>
+    <string name="saved_data">sharedPre-Success</string>
+    <string name="start_StockInfo">Start StockInfo</string>
+    <string name="stock_table_name_kor">국문명</string>
+    <string name="stock_table_name_eng">영문명</string>
+    <string name="stock_table_kind">종류</string>
+    <string name="coin_table_name">이름</string>
+    <string name="coin_table_price">가격</string>
+    <string name="coin_table_rate">전일대비</string>
+</resources>
