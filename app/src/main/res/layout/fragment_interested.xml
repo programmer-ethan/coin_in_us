@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="종목명"
+                android:text="국문명"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -111,7 +111,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="현재가"
+                android:text="영문명"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="변동률"
+                android:text="종류"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
         </TableRow>
@@ -208,7 +208,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="국문명"
+                android:text="종목명"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -217,7 +217,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="영문명"
+                android:text="현재가"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -226,7 +226,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_head_inside"
                 android:gravity="center"
-                android:text="주식종류"
+                android:text="전일대비"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
         </TableRow>

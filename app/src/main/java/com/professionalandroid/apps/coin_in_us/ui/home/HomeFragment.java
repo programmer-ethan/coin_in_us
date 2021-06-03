@@ -78,7 +78,7 @@ public class HomeFragment extends Fragment{
 
         // getting Shared preference from other application
         SharedPreferences pref
-                = context.getSharedPreferences("MYPREFRENCE", Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
+                = context.getSharedPreferences("MYPREFERENCE", Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
         String stock_name1 = pref.getString("STOCK_NAME_1", "");
         String stock_name_en1 = pref.getString("STOCK_EN_NAME_1", "");
         String stock_kind1 = pref.getString("STOCK_KIND_1", "");

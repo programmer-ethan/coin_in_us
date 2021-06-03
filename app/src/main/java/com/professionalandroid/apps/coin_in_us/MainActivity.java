@@ -123,26 +123,28 @@ public class MainActivity extends AppCompatActivity {
                     tableRow.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View v) {
+                            SharedPreferences sharedPreference
+                                    = getSharedPreferences("MYPREFERENCE", Context.MODE_MULTI_PROCESS | Context.MODE_PRIVATE);
+                            // 2. get Editor
+                            SharedPreferences.Editor editor = sharedPreference.edit();
                             if(textView.getTextColors() == ColorStateList.valueOf(Color.rgb(0,0,0))) {
                                 textView.setTextColor(Color.rgb(255, 127, 50));
                                 favorite.add(forprint[finalJ1]);
                                 //여기에 관심종목 추가 동작 입력
-                                SharedPreferences sharedPreference
-                                        = getSharedPreferences("MYPREFERENCE", Context.MODE_MULTI_PROCESS | Context.MODE_PRIVATE);
-                                // 2. get Editor
-                                SharedPreferences.Editor editor = sharedPreference.edit();
                                 // 3. set Key values
                                 editor.putString("COIN_NAME_1",forprint[finalJ1]);
                                 editor.putString("COIN_PRICE_1", String.valueOf(current_price));
-//                                editor.putString("COIN_RATE_1",String.valueOf(rate));
-                                editor.putString("COIN_RATE_1","something");
-
+                                editor.putString("COIN_RATE_1",String.valueOf(rate));
                                 editor.commit();
                             }
                             else {
                                 textView.setTextColor(Color.rgb(0, 0, 0));
                                 favorite.remove(forprint[finalJ1]);
                                 //여기에 관심종목 해제 동작 입력
+                                editor.remove("COIN_NAME_1");
+                                editor.remove("COIN_PRICE_1");
+                                editor.remove("COIN_RATE_1");
+                                editor.commit();
                             }
                             return true;
                         }
