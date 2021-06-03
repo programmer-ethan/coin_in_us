@@ -5,8 +5,8 @@
     <string name="title_coinSearch">코인 검색</string>
     <string name="title_interested">관심 종목</string>
     <string name="title_stockSearch">주식 검색</string>
-    <string name="interested_coin">관심 코인</string>
-    <string name="interested_stock">관심 주식</string>
+    <string name="interested_coin">관심 코인 목록</string>
+    <string name="interested_stock">관심 주식 목록</string>
     <string name="table_no">No.</string>
     <string name="table_name">Name</string>
     <string name="table_value">Value</string>

@@ -28,32 +28,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/coin_table_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginEnd="280dp"
-        android:layout_marginRight="265dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/interested_coin"
-        android:gravity="left"
-        android:textColor="#646eff"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@id/cointable"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
         android:id="@+id/stock_table_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginEnd="280dp"
-        android:layout_marginRight="265dp"
+        android:layout_marginRight="250dp"
         android:layout_marginBottom="10dp"
         android:text="@string/interested_stock"
         android:gravity="left"
@@ -63,23 +42,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+
     <TextView
-        android:id="@+id/shared_data"
+        android:id="@+id/coin_table_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginEnd="250dp"
-        android:layout_marginRight="265dp"
-        android:layout_marginBottom="50dp"
-        android:textColor="#6462ff"
+        android:layout_marginRight="250dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="left"
+        android:text="@string/interested_coin"
+        android:textColor="#646eff"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@id/cointable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
-        tools:ignore="MissingConstraints"
-        />
+        tools:ignore="MissingConstraints" />
 
     <TableLayout
         android:id="@+id/stocktable"
