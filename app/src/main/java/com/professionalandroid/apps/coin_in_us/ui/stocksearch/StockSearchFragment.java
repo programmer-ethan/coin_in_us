@@ -84,7 +84,6 @@ public class StockSearchFragment extends Fragment {
                         String stock_name1 = sharedPreference.getString("STOCK_NAME_1", "");
                         if (stock_name1==parsingData[j][0]) {
                           star.setChecked(true);
-                          star.setButtonDrawable(R.drawable.ic_search);
                         }
 
                         //추가- 노석한
