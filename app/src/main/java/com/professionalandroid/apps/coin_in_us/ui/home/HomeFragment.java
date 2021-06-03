@@ -101,11 +101,21 @@ public class HomeFragment extends Fragment{
         for (int i=0;i<3;i++){
             TextView textView = new TextView(context);
             textView.setGravity(Gravity.CENTER);
-            if(i==0) textView.setText(stock_name1);
-            else if(i==1) textView.setText(stock_name_en1);
-            else textView.setText(stock_kind1);
+            if(i==0) {
+                textView.setText(stock_name1);
+                textView.setMaxWidth(140);
+            }
+            else if(i==1) {
+                textView.setText(stock_name_en1);
+                textView.setMaxWidth(100);
+            }
+            else {
+                textView.setText(stock_kind1);
+                textView.setMaxWidth(60);
+            }
             textView.setTextSize(18);
             textView.setBackgroundResource(R.drawable.table_inside);
+            tableRow.setBackgroundResource(R.drawable.table_inside);
             tableRow.addView(textView);
         }
         tableLayout.addView(tableRow);
