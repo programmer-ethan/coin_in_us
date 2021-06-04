@@ -64,20 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void writeSharedPreference(View view){
-//        EditText txtValue = (EditText) findViewById(R.id.saved_data);
-//        String value = txtValue.getText().toString();
-        // 1. get Shared Preference
-        SharedPreferences sharedPreference
-                = this.getSharedPreferences("MYPREFRENCE", Context.MODE_MULTI_PROCESS | Context.MODE_WORLD_READABLE);
-        // 2. get Editor
-        SharedPreferences.Editor editor = sharedPreference.edit();
-        // 3. set Key values
-        editor.putString("MYKEY","VALUE1");
-        editor.putString("KEY2", "VALUE2");
-        // 4. commit the values
-        editor.commit();
-    }
     List<String> favorite = new ArrayList<String>();
     //
     public void coin_search_load(String coin){
@@ -127,15 +113,11 @@ public class MainActivity extends AppCompatActivity {
                     tableRow.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View v) {
-                            SharedPreferences sharedPreference
-                                    = getSharedPreferences("MYPREFERENCE", Context.MODE_MULTI_PROCESS | Context.MODE_PRIVATE);
-                            // 2. get Editor
                             SharedPreferences.Editor editor = sharedPreference.edit();
                             if(textView.getTextColors() == ColorStateList.valueOf(Color.rgb(0,0,0))) {
                                 textView.setTextColor(Color.rgb(255, 127, 50));
                                 favorite.add(forprint[finalJ1]);
-                                //여기에 관심종목 추가 동작 입력
-                                // 3. set Key values
+                                //관심종목 추가 동작
                                 editor.putString("COIN_NAME_1",forprint[finalJ1]);
                                 editor.putString("COIN_PRICE_1", String.valueOf(current_price));
                                 editor.putString("COIN_RATE_1",String.valueOf(rate) + "%");
@@ -143,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                             } else {
                                 textView.setTextColor(Color.rgb(0, 0, 0));
                                 favorite.remove(forprint[finalJ1]);
-                                //여기에 관심종목 해제 동작 입력
+                                //관심종목 해제 동작
                                 editor.remove("COIN_NAME_1");
                                 editor.remove("COIN_PRICE_1");
                                 editor.remove("COIN_RATE_1");

@@ -1,23 +1,17 @@
 package com.professionalandroid.apps.coin_in_us.ui.stockinfo;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.View;
-import android.widget.ScrollView;
+
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.professionalandroid.apps.coin_in_us.R;
 
-import org.jetbrains.annotations.NotNull;
-
 public class StockInfo extends AppCompatActivity {
-    ScrollView stockInfoscrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +41,6 @@ public class StockInfo extends AppCompatActivity {
 
         tmp = (TextView) findViewById(R.id.seven);
         tmp.setText(data[6]);
-
-        //stockInfoscrollView.setHorizontalScrollBarEnabled(true);
-
     }
 
 

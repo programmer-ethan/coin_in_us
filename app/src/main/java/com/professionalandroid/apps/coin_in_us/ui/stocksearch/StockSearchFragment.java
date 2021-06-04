@@ -8,11 +8,9 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
-import android.widget.Switch;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -75,29 +73,23 @@ public class StockSearchFragment extends Fragment {
 
                         CheckBox star = new CheckBox(getContext());
                         star.setButtonDrawable(R.drawable.star_button);
-
                         Context context = getActivity();
                         SharedPreferences sharedPreference
                                 = context.getSharedPreferences("MYPREFERENCE", Context.MODE_MULTI_PROCESS | Context.MODE_PRIVATE);
-                        // 2. get Editor
                         SharedPreferences.Editor editor = sharedPreference.edit();
                         String stock_name1 = sharedPreference.getString("STOCK_NAME_1", "");
                         if (stock_name1.equals(parsingData[j][0])) {
                           star.setChecked(true);
                         }
-
-                        //추가- 노석한
                         int finalJ = j;
                         star.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
 
                                 if (star.isChecked()) {
-                                    // 3. set Key values
                                     editor.putString("STOCK_NAME_1", parsingData[finalJ][0]);
                                     editor.putString("STOCK_EN_NAME_1", parsingData[finalJ][1]);
                                     editor.putString("STOCK_KIND_1", parsingData[finalJ][2]);
-                                    // 4. commit the values
                                     editor.commit();
 
                                 } else {
