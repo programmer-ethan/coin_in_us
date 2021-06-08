@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     String urlStr;
     Handler handler = new Handler();
     String merge_detail;
+    String[] coin_price = new String[10];
+    double[] coin_rate = new double[10];
     String current_price;
     double rate;
     Fragment fragment = new Coin_Info_Fragment();
@@ -119,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
                                 favorite.add(forprint[finalJ1]);
                                 //관심종목 추가 동작
                                 editor.putString("COIN_NAME_1",forprint[finalJ1]);
-                                editor.putString("COIN_PRICE_1", String.valueOf(current_price));
-                                editor.putString("COIN_RATE_1",String.valueOf(rate) + "%");
+                                editor.putString("COIN_PRICE_1", String.valueOf(coin_price[finalJ1]));
+                                editor.putString("COIN_RATE_1",String.valueOf(coin_rate[finalJ1]) + "%");
                                 editor.commit();
                             } else {
                                 textView.setTextColor(Color.rgb(0, 0, 0));
@@ -151,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             textView.setText(String.valueOf(current_price));
                             textView.setGravity(Gravity.CENTER);
+                            coin_price[finalJ]=current_price;
                         }
                     }, 700 * j + 700);
                 }
@@ -168,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             textView.setText(String.valueOf(rate) + "%");
                             textView.setGravity(Gravity.CENTER);
+                            coin_rate[finalJ]=rate;
                             if(rate<0) {
                                 textView.setTextColor(Color.rgb(50, 50, 255));
                             }

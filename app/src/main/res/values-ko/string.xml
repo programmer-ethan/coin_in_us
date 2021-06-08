@@ -16,7 +16,7 @@
     <string name="stock_table_name_kor">국문명</string>
     <string name="stock_table_name_eng">영문명</string>
     <string name="stock_table_kind">종류</string>
-    <string name="coin_table_name">이름</string>
-    <string name="coin_table_price">가격</string>
+    <string name="coin_table_name">종목명</string>
+    <string name="coin_table_price">현재가</string>
     <string name="coin_table_rate">전일대비</string>
 </resources>
